@@ -62,9 +62,9 @@ build-iPhoneSimulator/
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
-config/credentials.yml.enc.example
-config/database.yml.example
-config/storage.yml.example
+config/credentials.yml.enc
+config/database.yml
+config/storage.yml
 
 # Ignore uploaded files in development
 /storage/*
