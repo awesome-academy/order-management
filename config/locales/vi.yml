@@ -1,0 +1,19 @@
+vi:
+  layouts:
+    application:
+      title: "Ruby on Rails dự án 1"
+    header:
+      sample_app: "Ứng dụng gọi món"
+      language: "Ngôn ngữ"
+      lang_en: "Tiếng anh"
+      lang_vi: "Tiếng việt"
+      toogleNavigation: "Toggle navigation"
+      order_app: "Phần mềm gọi món"
+      home: "Trang chủ"
+      login: "Đăng nhập"
+    footer:
+      make_by: "Tạo bởi"
+  home_pages:
+    home:
+      home: "Trang chủ"
+      content: "Nội dung"
