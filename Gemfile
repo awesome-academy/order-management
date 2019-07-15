@@ -2,6 +2,8 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.5.5"
 gem "ffaker"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
 gem "jquery-rails"
 gem "bcrypt", "3.1.12"
 gem "config"

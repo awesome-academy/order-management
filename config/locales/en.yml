@@ -13,12 +13,47 @@ en:
       login: "Login"
       profile: "Profile"
       setting: "Update password"
+      user: "Account management"
     footer:
       make_by: "Create"
   home_pages:
     home:
       home: "Home"
       content: "Content"
+  users:
+    new:
+      create_user: "Create User"
+    edit:
+      edit_user: "Edit User"
+    form:
+      name: "Name"
+      address: "Address"
+      phone: "Phone"
+      username: "Username"
+      password: "Password"
+      password_confirmation: "Password Confirmation"
+      submit: "Submit"
+    show:
+      not_exits: "User not exits"
+    index:
+      all_user: "All account"
+      add_user: "Add user"
+      name: "Name"
+      address: "Address"
+      phone: "phone"
+      username: "Username"
+      created_at: "Created at"
+      updated_at: "Updated at"
+      action: "Action"
+    user:
+      delete: "delete"
+      sure: "You sure?"
+      show: "show"
+      edit: "edit"
+  shared:
+    error_messages:
+      contant: " The form contains"
+      error: "error"
   sessions:
     new:
       login: "Log in"
@@ -30,3 +65,21 @@ en:
     sessions:
       err: "Invalid username or password"
       success: "Wellcome to order app"
+    user:
+      success_create: "Create account success"
+      success_edit: "Edit account success"
+      not_exits: "User not exists"
+      please_ln: "Please login"
+      no_role: "You don't have access"
+      delete_s: "Delete success"
+      delete_err: "Delete fail"
+  views:
+    pagination:
+      first: "« First"
+      last: "Last »"
+      previous: "‹ Prev"
+      next: "Next ›"
+      truncate: "…"
+  time:
+    formats:
+      date_month_year_concise: "%d-%m-%Y"

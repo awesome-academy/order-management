@@ -1,0 +1,17 @@
+<tr>
+  <td>
+    <%= image_tag Settings.url_avata %>
+    <%= link_to user.name, user %>
+  </td>
+  <td><span><%= user.address %></span></td>
+  <td><span><%= user.phone %></span></td>
+  <td><span><%= user.username %></span></td>
+  <td><span><%= l user.created_at, format: :date_month_year_concise %></span></td>
+  <td><span><%= l user.updated_at, format: :date_month_year_concise %></span></td>
+  <td>
+    <%= link_to t(".delete"), user, method: :delete,
+  data: { confirm: t(".sure") } %> | 
+  <%= link_to t(".show"), user %> |
+  <%= link_to t(".edit"), edit_user_path(user) %>
+  </td>
+</tr>
