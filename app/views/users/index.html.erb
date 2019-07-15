@@ -1,0 +1,36 @@
+<% provide :title, t(".all_user") %>
+<div>
+<h1><%= t(".all_user") %></h1>
+<%= link_to t(".add_user"), new_user_path %>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="main-box no-header clearfix">
+      <div class="main-box-body clearfix">
+        <div class="table-responsive">
+          <table class="table user-list">
+            <thead>
+              <tr>
+                <th><span><%= t ".name" %></span></th>
+                <th><span><%= t ".address" %></span></th>
+                <th><span><%= t ".phone" %></span></th>
+                <th><span><%= t ".username" %></span></th>
+                <th><span><%= t ".created_at" %></span></th>
+                <th><span><%= t ".updated_at" %></span></th>
+                <th><span><%= t ".action" %></span></th>
+              </tr>
+            </thead>
+              <tbody>
+                <% @users.each do |user| %>
+                  <%= render user %>
+                <% end %>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= paginate @users, theme: Settings.theme_config %>

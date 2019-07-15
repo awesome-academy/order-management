@@ -13,12 +13,47 @@ vi:
       login: "Đăng nhập"
       profile: "Thông tin cá nhân"
       setting: "Cập nhật mật khẩu"
+      user: "Quản lý tài khoản"
     footer:
       make_by: "Tạo bởi"
   home_pages:
     home:
       home: "Trang chủ"
       content: "Nội dung"
+  users:
+    new:
+      create_user: "Thêm nhân viên"
+    edit:
+      edit_user: "Cập nhật nhân viên"
+    form:
+      name: "Tên"
+      address: "Địa chỉ"
+      phone: "Số điện thoại"
+      username: "Tên đăng nhập"
+      password: "Mật khẩu"
+      password_confirmation: "Xác nhận mật khẩu"
+      submit: "Gửi"
+    show:
+      not_exits: "User not exits"
+    index:
+      all_user: "Danh sách tài khoản"
+      add_user: "Tạo tài khoản"
+      name: "Họ tên"
+      address: "Địa chỉ"
+      phone: "Số điện thoại"
+      username: "Tên đăng nhập"
+      created_at: "Ngày tạo"
+      updated_at: "Ngày sửa"
+      action: "Hành động"
+    user:
+      delete: "xóa "
+      sure: "Đồng ý xóa?"
+      show: "xem"
+      edit: "sửa"
+  shared:
+    error_messages:
+      contant: "Nội dung biểu mẫu"
+      error: "lỗi"
   sessions:
     new:
       login: "Đăng nhập"
@@ -30,3 +65,21 @@ vi:
     sessions:
       err: "Tên đăng nhập mật khẩu không chính xác"
       success: "Chào mừng tới ứng dụng gọi món"
+    user:
+      success_create: "Tạo tài khoản thành công"
+      success_edit: "Cập nhật khoản thành công"
+      not_exits: "Tài khoản không tồn tại"
+      please_ln: "Vui lòng đăng nhập"
+      no_role: "Bạn không có quyền truy cập"
+      delete_s: "Xóa thành công"
+      delete_err: "Xóa không thành công"
+  views:
+    pagination:
+      first: "« Đầu trang"
+      last: "Cuối trang »"
+      previous: "‹ Trước"
+      next: "Sau ›"
+      truncate: "…"
+  time:
+    formats:
+      date_month_year_concise: "%d-%m-%Y"
