@@ -11,9 +11,22 @@ vi:
       order_app: "Phần mềm gọi món"
       home: "Trang chủ"
       login: "Đăng nhập"
+      profile: "Thông tin cá nhân"
+      setting: "Cập nhật mật khẩu"
     footer:
       make_by: "Tạo bởi"
   home_pages:
     home:
       home: "Trang chủ"
       content: "Nội dung"
+  sessions:
+    new:
+      login: "Đăng nhập"
+      sign_up: "Đăng kí"
+      username: "Tên đăng nhập"
+      password: "Mật khẩu"
+      remember: "Nhớ mật tại máy này"
+  controllers:
+    sessions:
+      err: "Tên đăng nhập mật khẩu không chính xác"
+      success: "Chào mừng tới ứng dụng gọi món"

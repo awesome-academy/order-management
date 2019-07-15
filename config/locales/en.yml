@@ -11,9 +11,22 @@ en:
       order_app: "Order app"
       home: "Home"
       login: "Login"
+      profile: "Profile"
+      setting: "Update password"
     footer:
       make_by: "Create"
   home_pages:
     home:
       home: "Home"
       content: "Content"
+  sessions:
+    new:
+      login: "Log in"
+      sign_up: "Sign up"
+      username: "Username"
+      password: "Password"
+      remember: "Remember me on this computer"
+  controllers:
+    sessions:
+      err: "Invalid username or password"
+      success: "Wellcome to order app"
