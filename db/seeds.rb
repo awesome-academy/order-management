@@ -3,6 +3,7 @@ require "ffaker"
 User.create!(name:  "Nguyễn Văn Bảy",
   username: "bayptit",
   password: "111",
+  password_confirmation: "111",
   address: "Hà Nội",
   role: 1,
   phone: "0962199791",
@@ -11,12 +12,13 @@ User.create!(name:  "Nguyễn Văn Bảy",
 20.times do |n|
   name  = FFaker::Name.name
   address = FFaker::Address.city
-  username = "bay-#{n+1}"
+  username = "bay_#{n+1}"
   password = "111"
   phone = FFaker::PhoneNumber.phone_number
   User.create!(name:  name,
   username: username,
   password: "111",
+  password_confirmation: "111",
   address: address,
   role: 0,
   phone: phone,

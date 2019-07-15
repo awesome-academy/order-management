@@ -1,2 +1,5 @@
 author: "Nguyễn Văn Bảy"
 maked_at: "© 2019"
+VALID_EMAIL_REGEX: !ruby/regexp '/\A[a-zA-Z0-9_\.]+\z/i'
+max_username: 200
+min_password: 3
