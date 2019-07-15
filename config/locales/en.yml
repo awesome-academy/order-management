@@ -1,1 +1,19 @@
 en:
+  layouts:
+    application:
+      title: "Ruby on Rails project 1"
+    header:
+      sample_app: "Order App"
+      language: "Languages"
+      lang_en: "English"
+      lang_vi: "Vietnamese"
+      toogleNavigation: "Toggle navigation"
+      order_app: "Order app"
+      home: "Home"
+      login: "Login"
+    footer:
+      make_by: "Create"
+  home_pages:
+    home:
+      home: "Home"
+      content: "Content"
