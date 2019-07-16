@@ -14,6 +14,7 @@ vi:
       profile: "Thông tin cá nhân"
       setting: "Cập nhật mật khẩu"
       user: "Quản lý tài khoản"
+      product: "Quản lý sản phẩm"
     footer:
       make_by: "Tạo bởi"
   home_pages:
@@ -61,6 +62,51 @@ vi:
       username: "Tên đăng nhập"
       password: "Mật khẩu"
       remember: "Nhớ mật tại máy này"
+  products:
+    index:
+      all_product: "Danh sách sản phẩm"
+      add_product: "Thêm sản phẩm"
+      status: "Trạng thái"
+      combo: "Gói"
+      action: "Hành động"
+    product:
+      allowed: "Đang cung cấp"
+      unallowed: "Ngừng cung cấp"
+      sure: "Đồng ý"
+    edit:
+      edit_product: "Sửa sản phẩm"
+    form:
+      image: "Ảnh"
+      name: "Tên sản phẩm"
+      price: "Giá"
+      submit: "Gửi"
+      status: "Trạng thái"
+    new:
+      create_product: "Tạo sản phẩm"
+    show:
+      image: "Ảnh"
+      name: "Tên"
+      price: "Giá"
+      status: "Trạng thái"
+      info: "Thông tin sản phẩm"
+      allowed: "Cung cấp"
+      unallowed: "Ngừng cấp"
+      combo: "Gói"
+      list_product: "Danh sách sản phẩm"
+    combo_form:
+      add_combo: "Thêm vào gói"
+      product: "Sản phẩm"
+      combo: "Gói"
+      submit: "Gửi"
+      select_combo: "Chọn gói"
+  combo_products:
+    index:
+      all_combo_product: "Danh sách gói và sản phẩm"
+      combo_name: "Tên gói"
+      product_name: "Tên sản phẩm"
+    show:
+      combo: "Gói"
+      product: "Sản phẩm"
   controllers:
     sessions:
       err: "Tên đăng nhập mật khẩu không chính xác"
@@ -73,6 +119,18 @@ vi:
       no_role: "Bạn không có quyền truy cập"
       delete_s: "Xóa thành công"
       delete_err: "Xóa không thành công"
+    product:
+      success_create: "Tạo sản phẩm thành công"
+      success_edit: "Sửa sản phẩm thành công"
+      not_exits: "Sản phẩm không tồn tại"
+      please_ln: "Hãy đăng nhập"
+      no_role: "Bạn không có quyền truy cập"
+      delete_s: "Xóa thành công"
+      delete_err: "Xóa thất bại"
+      not_exits: "Gói sản phẩm này không tồn tại"
+    combo_product:
+      success_create: "Tạo thành công"
+      error_create: "Tạo không thành công"
   views:
     pagination:
       first: "« Đầu trang"

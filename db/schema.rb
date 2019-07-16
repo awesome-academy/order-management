@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_13_030745) do
+ActiveRecord::Schema.define(version: 2019_07_15_153811) do
 
   create_table "bill_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "type_detail"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 2019_07_13_030745) do
     t.index ["user_id"], name: "index_bills_on_user_id"
   end
 
+  create_table "combo_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "combo_id"
+    t.bigint "product_id"
+    t.index ["combo_id"], name: "index_combo_products_on_combo_id"
+    t.index ["product_id"], name: "index_combo_products_on_product_id"
+  end
+
   create_table "combos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "status"
@@ -46,8 +53,6 @@ ActiveRecord::Schema.define(version: 2019_07_13_030745) do
     t.float "price"
     t.string "image"
     t.integer "status"
-    t.bigint "combo_id"
-    t.index ["combo_id"], name: "index_products_on_combo_id"
   end
 
   create_table "tables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -72,5 +77,6 @@ ActiveRecord::Schema.define(version: 2019_07_13_030745) do
   add_foreign_key "bill_details", "products"
   add_foreign_key "bills", "tables"
   add_foreign_key "bills", "users"
-  add_foreign_key "products", "combos"
+  add_foreign_key "combo_products", "combos"
+  add_foreign_key "combo_products", "products"
 end

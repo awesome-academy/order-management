@@ -49,18 +49,10 @@ end
   price = 10000
   image = "a.png"
   status = 1
-  if rand(1...2) == 1 
-    Product.create!(name: name,
-  price: price,
-  image: image,
-  status: status,
-  combo_id: rand(1...20))
-  else
-    Product.create!(name: name,
+  Product.create!(name: name,
   price: price,
   image: image,
   status: status)
-  end
 end
 
 50.times do |n|
