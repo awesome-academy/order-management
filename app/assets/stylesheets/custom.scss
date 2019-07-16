@@ -36,6 +36,11 @@
   padding-right: 5px;
 }
 
+// all
+body {
+  box-sizing: border-box;
+}
+
 // responsive
 
 @mixin respond-to($media) {
@@ -168,4 +173,25 @@ body{
     border-top: 1px solid $gray-e7;
     padding: 12px 8px;
   }
+}
+
+// show product
+
+.show-product {
+  display: flex;
+  width: 100%;
+  section {
+    width: 50%;
+    background: $while;
+    margin-right: 10px;
+  }
+}
+
+// add combo
+
+.add-combo {
+  background: $while;
+  padding: 10px;
+  margin: 16px;
+  width: 96.5%;
 }

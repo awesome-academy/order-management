@@ -54,17 +54,4 @@ class UsersController < ApplicationController
     flash[:danger] = t("controllers.user.not_exits")
     redirect_to root_path
   end
-
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:danger] = t("controllers.user.please_ln")
-    redirect_to login_url
-  end
-
-  def admin_user
-    return if current_user.manager?
-    flash[:danger] = t("controllers.user.no_role")
-    redirect_to root_url
-  end
 end
