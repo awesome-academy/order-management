@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user, except: %i(show)
 
   def index
-    @users = User.page(params[:page]).per Settings.num_user
+    @users = User.page(params[:page]).per(Settings.num_user).ordered_by_name
   end
   
   def new

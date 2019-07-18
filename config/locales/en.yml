@@ -15,6 +15,8 @@ en:
       setting: "Update password"
       user: "Account management"
       product: "Product management"
+      combo: "Combo management"
+      combo_product: "Combo product management"
     footer:
       make_by: "Create"
   home_pages:
@@ -93,17 +95,69 @@ en:
       unallowed: "Unallowed"
       combo: "Combo"
       list_product: "List product"
+      sure: "Sure?"
+      delete: "delete"
+      action: "Action"
     combo_form:
       add_combo: "Add to combo"
       product: "Product"
       combo: "Combo"
       submit: "Submit"
       select_combo: "Select combo"
+      add_to_combo: "Add to combo"
+  combos:
+    product_form:
+      add_to_product: "Add to product"
+      product: "Product"
+      select_product: "Select product"
+      submit: "Submit"
+    form:
+      name: "Name"
+      price: "Price"
+      status: "Status"
+      allowed: "Allowed"
+      unallowed: "Unallowed"
+      submit: "Submit"
+      combo: "Combo"
+    combo:
+      allowed: "Allowed"
+      unallowed: "Unallowed"
+      delete: "delete"
+      sure: "Sure"
+      show: "show"
+      edit: "edit"
+    edit:
+      edit_combo: "Edit combo"
+    index:
+      all_combo: "All combo"
+      add_combo: "Add combo"
+      name: "Name"
+      price: "Price"
+      status: "Status"
+      action: "Action"
+    new:
+      create_combo: "Create combo"
+    show:
+      edit: "Edit combo"
+      list_combo: "All combo"
+      info: "Infomation combo"
+      name: "Name"
+      price: "Price"
+      status: "Status"
+      allowed: "Allowed"
+      unallowed: "Unallowed"
+      product: "Product"
+      image: "Image"
+      action: "Action"
+      delete: "delete"
+      sure: "Sure ?"
   combo_products:
     index:
-      all_combo_product: "Danh sách gói và sản phẩm"
-      combo_name: "Tên gói"
-      product_name: "Tên sản phẩm"
+      all_combo_product: "List combo product"
+      combo_name: "Combo name"
+      product_name: "Product name"
+      action: "Action"
+      sure: "Sure ?"
     show:
       combo: "Combo"
       product: "Product"
@@ -131,6 +185,15 @@ en:
     combo_product:
       success_create: "Create success"
       error_create: "Create fail"
+      delete_s: "Delete sucess"
+      delete_err: "Delete fail"
+    combo:
+      success_create: "Create success"
+      success_edit: "Edit success"
+      delete_s: "Delete success"
+      delete_err: "Delete Fail"
+      not_exits: "Combo not exists"
+      success_edit: "Success edit"
   views:
     pagination:
       first: "« First"

@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <%= link_to combo.name, combo %>
+  </td>
+  <td><span><%= combo.price %></span></td>
+  <td><span><%= combo.allowed? ? t(".allowed") : t(".unallowed")  %></span></td>
+  <td>
+    <%= link_to t(".delete"), combo, method: :delete,
+  data: { confirm: t(".sure") } %> | 
+    <%= link_to t(".show"), combo %> |
+    <%= link_to t(".edit"), edit_combo_path(combo) %>
+  </td>
+</tr>

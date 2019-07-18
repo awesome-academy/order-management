@@ -8,4 +8,6 @@ class ComboProduct < ApplicationRecord
 
   validates :combo_id, presence: true, numericality: true
   validates :product_id, presence: true, numericality: true
+
+  scope :ordered_by_combo_id, -> {order(combo_id: :desc)}
 end

@@ -15,3 +15,8 @@ theme_config: "twitter-bootstrap-3"
 num_product: 10
 unit: "VND"
 num_combo_product: 10
+num_combo: 10
+min_name_product: 3
+max_name_product: 250
+min_name_combo: 3
+max_name_combo: 250

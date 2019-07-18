@@ -15,6 +15,8 @@ vi:
       setting: "Cập nhật mật khẩu"
       user: "Quản lý tài khoản"
       product: "Quản lý sản phẩm"
+      combo: "Quản lý gói"
+      combo_product: "Quản lý gói sản phẩm"
     footer:
       make_by: "Tạo bởi"
   home_pages:
@@ -93,17 +95,69 @@ vi:
       unallowed: "Ngừng cấp"
       combo: "Gói"
       list_product: "Danh sách sản phẩm"
+      sure: "Đồng ý?"
+      delete: "xóa"
+      action: "Hành động"
     combo_form:
       add_combo: "Thêm vào gói"
       product: "Sản phẩm"
       combo: "Gói"
       submit: "Gửi"
       select_combo: "Chọn gói"
+      add_to_combo: "Thêm vào combo"
+  combos:
+    product_form:
+      add_to_product: "Add to product"
+      product: "Product"
+      select_product: "Select product"
+      submit: "Gửi"
+    form:
+      name: "Tên"
+      price: "Giá"
+      status: "Trạng thái"
+      allowed: "Cung cấp"
+      unallowed: "Ngừng cung cấp"
+      submit: "Gửi"
+      combo: "Combo"
+    combo:
+      allowed: "Cung cấp"
+      unallowed: "Ngừng cung cấp"
+      delete: "Xóa"
+      sure: "Đồng ý"
+      show: "xem"
+      edit: "sửa"
+    edit:
+      edit_combo: "Sửa gói"
+    index:
+      all_combo: "Danh sách gói"
+      add_combo: "Thêm gói"
+      name: "Tên"
+      price: "Giá"
+      status: "Trạng thái"
+      action: "Hành động"
+    new:
+      create_combo: "Tạo gói"
+    show:
+      edit: "Sửa"
+      list_combo: "Danh sách gói"
+      info: "Thông tin gói"
+      name: "Tên"
+      price: "Giá"
+      status: "Trạng thái"
+      allowed: "Cung cấp"
+      unallowed: "Ngừng cung cấp"
+      product: "Sản phẩm"
+      image: "Ảnh"
+      action: "Hành động"
+      delete: "xóa"
+      sure: "Đồng ý ?"
   combo_products:
     index:
       all_combo_product: "Danh sách gói và sản phẩm"
       combo_name: "Tên gói"
       product_name: "Tên sản phẩm"
+      action: "Hành động"
+      sure: "Đồng ý?"
     show:
       combo: "Gói"
       product: "Sản phẩm"
@@ -131,6 +185,15 @@ vi:
     combo_product:
       success_create: "Tạo thành công"
       error_create: "Tạo không thành công"
+      delete_s: "Xóa thành công"
+      delete_err: "Xóa không thành công"
+    combo:
+      success_create: "Tạo thành công"
+      error_create: "Tạo không thành công"
+      delete_s: "Xóa thành công"
+      delete_err: "Xóa không thành công"
+      not_exits: "Gói không tồn tại"
+      success_edit: "Cập nhật thành công"
   views:
     pagination:
       first: "« Đầu trang"
