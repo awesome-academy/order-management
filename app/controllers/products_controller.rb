@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :admin_user, except: %i(show)
 
   def index
-    @products = Product.page(params[:page]).per Settings.num_product
+    @products = Product.page(params[:page]).per(Settings.num_product).ordered_by_name
   end
   
   def new
@@ -34,7 +34,8 @@ class ProductsController < ApplicationController
 
   def show
     @combo_product = ComboProduct.new
-    @combos = Combo.list_combos(@product.combos.map(&:id))
+    @combos = Combo.list_combos(@product.combos.pluck(:id)).ordered_by_name
+    store_location
   end
 
   def destroy

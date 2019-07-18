@@ -8,6 +8,9 @@ class Product < ApplicationRecord
   has_many :combos, through: :combo_products
   mount_uploader :image, PictureUploader
 
-  validates :price, presence: true, length: {minimum: Settings.min_password}, numericality: true
-  validates :name, presence: true, length: {minimum: Settings.min_name, maximum: Settings.max_name}
+  validates :price, presence: true, numericality: true
+  validates :name, presence: true, length: {minimum: Settings.min_name_product, maximum: Settings.max_name_product}
+
+  scope :list_products, -> ids{where.not(id: ids)}
+  scope :ordered_by_name, -> {order(name: :asc)}
 end

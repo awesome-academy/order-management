@@ -1,9 +1,9 @@
-<% provide :title, @product.name %>
+<% provide :title, @combo.name %>
 <div class="row">
 
   <aside class="col-md-12">
-    <%= link_to t(".edit"), edit_product_path(@product) %> | 
-    <%= link_to t(".list_product"), products_path %>
+    <%= link_to t(".edit"), edit_combo_path(@combo) %> | 
+    <%= link_to t(".list_combo"), combos_path %>
   </aside>
 
   <aside class="col-md-12 show-product">
@@ -13,40 +13,38 @@
         <thead>
           <tr>
             <th><span><%= t ".name" %></span></th>
-            <th><span><%= @product.name %></span></th>
+            <th><span><%= @combo.name %></span></th>
           </tr>
           <tr>
             <th><span><%= t ".price" %></span></th>
-            <th><span><%= @product.price %> <%= Settings.unit %></span></th>
+            <th><span><%= @combo.price %> <%= Settings.unit %></span></th>
           </tr>
           <tr>
             <th><span><%= t ".status" %></span></th>
-            <th><%= @product.allowed? ? t(".allowed") : t(".unallowed")  %></span></th>
-          </tr>
-          <tr>
-            <th><span><%= t ".image" %></span></th>
-            <th><%= image_tag @product.image.url if @product.image? %></th>
+            <th><%= @combo.allowed? ? t(".allowed") : t(".unallowed")  %></span></th>
           </tr>
         </thead>
       </table>
     </section>
 
     <section class="combo_info">
-      <h4 class="text-center"><%= t ".combo" %></h4><hr>
+      <h4 class="text-center"><%= t ".product" %></h4><hr>
       <table class="table user-list">
         <thead>
           <tr>
             <th><span><%= t ".name" %></span></th>
             <th><span><%= t ".price" %></span></th>
+            <th><span><%= t ".image" %></span></th>
             <th><span><%= t ".action" %></span></th>
           </tr>
         </thead>
           <tbody>
-            <% @product.combos.each do |combo| %>
+            <% @combo.products.each do |product| %>
               <tr>
-                <th><span><%= combo.name %></span></th>
-                <th><span><%= combo.price %> <%= Settings.unit %></span></th>
-                <th><%= link_to t(".delete"), find_combo_product(combo.id, @product.id), method: :delete,
+                <th><span><%= product.name %></span></th>
+                <th><span><%= product.price %> <%= Settings.unit %></span></th>
+                <th><%= image_tag(product.image.url, class: "img-responsive") if product.image? %></th>
+                <th><%= link_to t(".delete"), find_combo_product(@combo.id, product.id), method: :delete,
   data: { confirm: t(".sure") } %></th>
               </tr>
             <% end %>
@@ -56,6 +54,6 @@
   </aside>
 
   <aside class="col-md-12 add-combo">
-    <%= render "combo_form" %>
+    <%= render "product_form" %>
   </aside>
 </div>

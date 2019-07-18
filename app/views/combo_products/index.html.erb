@@ -13,14 +13,19 @@
               <tr>
                 <th><span><%= t ".combo_name" %></span></th>
                 <th><span><%= t ".product_name" %></span></th>
+                <th><span><%= t ".action" %></span></th>
               </tr>
             </thead>
               <tbody>
                 <% @combo_products.each do |cp| %>
                   <tr>
-                <th><span><%= cp.combo_name %></span></th>
-                <th><span><%= cp.product_name %></span></th>
-              </tr>
+                    <th><span><%= cp.combo_name %></span></th>
+                    <th><span><%= cp.product_name %></span></th>
+                    <th>
+                      <%= link_to t(".delete"), cp, method: :delete,
+  data: { confirm: t(".sure") } %>
+                    </th>
+                  </tr>
                 <% end %>
               </tbody>
           </table>

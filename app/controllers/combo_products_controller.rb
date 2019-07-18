@@ -1,5 +1,5 @@
 class ComboProductsController < ApplicationController
-  before_action :load_combo_product, only: %i(show)
+  before_action :load_combo_product, only: %i(show destroy)
 
   def create
     @combo_product = ComboProduct.new combo_product_params
@@ -8,14 +8,25 @@ class ComboProductsController < ApplicationController
     else
       flash[:danger] = t("controllers.combo_product.error_create")
     end
-    redirect_to @combo_product.product
+    redirect_back_or @combo_product
   end
 
   def index
-    @combo_products = ComboProduct.page(params[:page]).per Settings.num_combo_product
+    @combo_products = ComboProduct.page(params[:page]).per(Settings.num_combo_product)
+  .ordered_by_combo_id
+  store_location
   end
 
-  def show; end 
+  def show; end
+
+  def destroy
+    if @combo_product.destroy
+      flash[:success] = t("controllers.combo_product.delete_s")
+    else
+      flash[:danger] = t("controllers.combo_product.delete_err")
+    end
+    redirect_back_or @combo_product
+  end
 
   private
   def combo_product_params

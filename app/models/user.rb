@@ -12,6 +12,8 @@ class User < ApplicationRecord
   validates :phone, presence: true, length: {minimum: Settings.min_phone, maximum: Settings.max_phone}
   validates :address, presence: true, length: {minimum: Settings.min_address, maximum: Settings.max_address}
 
+  scope :ordered_by_name, -> {order(name: :asc)}
+  
   has_secure_password
 
   def authenticated? token
