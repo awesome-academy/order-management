@@ -1,21 +1,21 @@
-class UsersController < ApplicationController
+class TablesController < ApplicationController
   before_action :logged_in_user, except: %i(new create)
-  before_action :load_user, except: %i(new create index)
+  before_action :load_table, except: %i(new create index)
   before_action :admin_user, except: %i(show)
 
   def index
-    @users = User.page(params[:page]).per(Settings.num_user).ordered_by_name
+    @tables = Table.page(params[:page]).per(Settings.num_table).ordered_by_number
   end
   
   def new
-    @user = User.new
+    @table = Table.new
   end
 
   def create
-    @user = User.new user_params
-    if @user.save
+    @table = Table.new table_params
+    if @table.save
       flash[:success] = t(".success_create")
-      redirect_to @user
+      redirect_to @table
     else
       render :new
     end
@@ -24,9 +24,9 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if @user.update user_params
+    if @table.update table_params
       flash[:success] = t(".success_edit")
-      redirect_to @user
+      redirect_to @table
     else
       render :edit
     end
@@ -35,22 +35,22 @@ class UsersController < ApplicationController
   def show; end
 
   def destroy
-    if @user.destroy
+    if @table.destroy
       flash[:success] = t(".delete_s")
     else
       flash[:danger] = t(".delete_err")
     end
-    redirect_to users_url
+    redirect_to tables_url
   end
 
   private
-  def user_params
-    params.require(:user).permit User::USER_PARAMS
+  def table_params
+    params.require(:table).permit Table::TABLE_PARAMS
   end
 
-  def load_user
-    @user = User.find_by_id params[:id]
-    return if @user
+  def load_table
+    @table = Table.find_by id: params[:id]
+    return if @table
     flash[:danger] = t(".not_exits")
     redirect_to root_path
   end

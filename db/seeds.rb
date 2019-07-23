@@ -28,18 +28,18 @@ end
 20.times do |n|
   number = "Bàn số  #{n + 1}"
   description = FFaker::Lorem.sentence(10)
-  amount_chair = 5
+  amount_chair = 2
   Table.create!(number: number,
   description: description,
   amount_chair: amount_chair)
 end
 
 20.times do |n|
-  name = "Combo #{n + 1}"
+  name1 = "Combo #{n + 1}"
   status = 1
   price = 100000
   amount_chair = 5
-  Combo.create!(name: name,
+  Combo.create!(name: name1,
   status: status,
   price: price)
 end
@@ -53,36 +53,4 @@ end
   price: price,
   image: image,
   status: status)
-end
-
-50.times do |n|
-  name = "Khách #{n + 1}"
-  table_id = rand(1...20)
-  user_id = rand(1...20)
-  status = 1
-  Bill.create!(name: name,
-  status: status,
-  table_id: table_id,
-  user_id: user_id,
-  created_at: Time.zone.now)
-end
-
-100.times do |n|
-  count = rand(1...5)
-  price = rand(10000...50000)
-  type =  rand(1...2)
-  bill_id = rand(1...50)
-  if type == 1
-    BillDetail.create!(count: count,
-    price: price,
-    type_detail: type,
-    combo_id: rand(1...20),
-    bill_id: bill_id)
-  else
-    BillDetail.create!(count: count,
-    price: price,
-    type_detail: type,
-    product_id: rand(1...50),
-    bill_id: rand(1...50))
-  end
 end

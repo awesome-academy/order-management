@@ -1,0 +1,35 @@
+<div class="table-responsive">
+  <table class="table user-list">
+    <thead>
+      <tr>
+        <th><span><%= t ".image" %></span></th>
+        <th><span><%= t ".name" %></span></th>
+        <th><span><%= t ".price" %></span></th>
+        <th><span><%= t ".action" %></span></th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= image_tag(product.image.url, class: "img-responsive") %></td>
+            <td>
+              <%= link_to product.name, product %>
+            </td>
+            <td><span><%= product.price %></span></td>
+            <td>
+              <%= form_for @bill_detail do |f| %>
+                <%= f.hidden_field :type_detail, value: :product %>
+                <%= f.hidden_field :price, value: product.price %>
+                <%= f.hidden_field :count, value: Settings.count_auto %>
+                <%= f.hidden_field :bill_id, value: params[:bill_id] %>
+                <%= f.hidden_field :product_id, value: product.id %>
+                <%= f.submit t(".add"), class: "btn btn-success btn-xs" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+</div>
+
+<%= paginate @products, theme: Settings.theme_config, param_name: :product, params: {selected: Settings.selected_product}%>

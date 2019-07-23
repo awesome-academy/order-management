@@ -11,6 +11,7 @@ class Product < ApplicationRecord
   validates :price, presence: true, numericality: true
   validates :name, presence: true, length: {minimum: Settings.min_name_product, maximum: Settings.max_name_product}
 
-  scope :list_products, -> ids{where.not(id: ids)}
+  scope :list_products, -> id_product{where.not(id: id_product)}
   scope :ordered_by_name, -> {order(name: :asc)}
+  scope :not_exits_in_bill, -> id_product{where.not(id: id_product)}
 end

@@ -10,6 +10,7 @@ class Combo < ApplicationRecord
   validates :price, presence: true, numericality: true
   validates :name, presence: true, length: {minimum: Settings.min_name_combo, maximum: Settings.max_name_combo}
 
-  scope :list_combos, -> ids{where.not(id: ids)}
+  scope :list_combos, -> id_combo{where.not(id: id_combo)}
   scope :ordered_by_name, -> {order name: :asc}
+  scope :not_exits_in_bill, -> id_combo{where.not(id: id_combo)}
 end

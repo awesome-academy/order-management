@@ -1,0 +1,55 @@
+<div class="row order">  
+  <div class="col-xs-12 col-md-7 border-custom">
+    <table class="table user-list">
+      <thead>
+        <tr>
+          <th><span><%= t ".name" %></span></th>
+          <th><span><%= t ".type" %></span></th>
+          <th><span><%= t ".number" %></span></th>
+          <th><span><%= t ".price" %></span></th>
+          <th><span><%= t ".action" %></span></th>
+        </tr>
+      </thead>
+        <tbody>
+        
+          <% @bill_details.each do |bill_detail| %>
+            <%= form_for bill_detail do |f| %>
+              <tr>
+                <td><span><%= bill_detail.combo? ? bill_detail.combo_name : bill_detail.product_name %></span></td>
+                <td><span><%= bill_detail.combo? ? t(".combo") : t(".product") %></span></td>
+                <td><span><%= f.text_field :count, value: bill_detail.count %></span></td>
+                <td><span><%= bill_detail.price %> <%= Settings.unit %></span></td>
+                <td>
+                  <%= link_to t(".delete"), bill_detail, method: :delete,
+  data: { confirm: t(".sure") } %> |
+                  <%= f.submit t(".submit"), class: "btn-update" %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+    </table>
+    <% if @bill_details.present? %>
+      <%= link_to t(".payment"), "#", class: "btn btn-success" %>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-md-5">
+    <ul class="nav nav-tabs">
+      <li class="<%= "active" if check_product_active params[:selected] %>" value="product">
+        <%= link_to t(".product"), "#product", {"data-toggle" => "tab", "aria-expanded" => ("true" if params[:selected] == Settings.selected_product)} %>
+      </li>
+      <li class="<%= "active" if check_combo_active params[:selected] %>" value="combo">
+        <%= link_to t(".combo"), "#combo", {"data-toggle" => "tab", "aria-expanded" => ("true" if params[:selected] == Settings.selected_combo)} %>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="product" class="tab-pane fade <%= "in active" if check_product_active params[:selected] %>">
+        <%= render "product" %>
+      </div>
+      <div id="combo" class="tab-pane fade <%= "in active" if check_combo_active params[:selected] %>">
+        <%= render "combo" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<%= form_for @table do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.label t(".number") %>
+  <%= f.text_field :number, class: "form-control mb-1" %>
+
+  <%= f.label t(".description") %>
+  <%= f.text_area :description, class: "form-control mb-1" %>
+
+  <%= f.label t(".type_table") %>
+  <%= f.select :amount_chair, options_for_select(Table.amount_chairs.map { |key, value| [key.humanize, key] }), {include_blank: t(".select_type")}, {class: "form-control"} %><br>
+
+  <%= f.submit t(".submit"), class: "btn btn-primary" %>
+<% end %>

@@ -3,12 +3,12 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by username: params[:session][:username].downcase
-    if user&.authenticate(params[:session][:password])
+    if user&.authenticate params[:session][:password]
       log_in user
-      flash[:success] = t("controllers.sessions.success")
+      flash[:success] = t(".success")
       redirect_back_or user
     else
-      flash.now[:danger] = t("controllers.sessions.err")
+      flash.now[:danger] = t(".err")
       render :new
     end
   end

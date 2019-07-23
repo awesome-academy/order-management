@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new product_params
     if @product.save
-      flash[:success] = t("controllers.product.success_create")
+      flash[:success] = t(".success_create")
       redirect_to @product
     else
       render :new
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update product_params
-      flash[:success] = t("controllers.product.success_edit")
+      flash[:success] = t(".success_edit")
       redirect_to @product
     else
       render :edit
@@ -40,9 +40,9 @@ class ProductsController < ApplicationController
 
   def destroy
     if @product.destroy
-      flash[:success] = t("controllers.product.delete_s")
+      flash[:success] = t(".delete_s")
     else
-      flash[:danger] = t("controllers.product.delete_err")
+      flash[:danger] = t(".delete_err")
     end
     redirect_to products_url
   end
@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
   def load_product
     @product = Product.find_by id: params[:id]
     return if @product
-    flash[:danger] = t("controllers.product.not_exits")
+    flash[:danger] = t(".not_exits")
     redirect_to root_path
   end
 end

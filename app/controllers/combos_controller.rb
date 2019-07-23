@@ -14,7 +14,7 @@ class CombosController < ApplicationController
   def create
     @combo = Combo.new combo_params
     if @combo.save
-      flash[:success] = t("controllers.combo.success_create")
+      flash[:success] = t("success_create")
       redirect_to @combo
     else
       render :new
@@ -25,7 +25,7 @@ class CombosController < ApplicationController
 
   def update
     if @combo.update combo_params
-      flash[:success] = t("controllers.combo.success_edit")
+      flash[:success] = t("success_edit")
       redirect_to @combo
     else
       render :edit
@@ -40,9 +40,9 @@ class CombosController < ApplicationController
 
   def destroy
     if @combo.destroy
-      flash[:success] = t("controllers.combo.delete_s")
+      flash[:success] = t(".delete_s")
     else
-      flash[:danger] = t("controllers.combo.delete_err")
+      flash[:danger] = t(".delete_err")
     end
     redirect_to combos_url
   end
@@ -55,7 +55,7 @@ class CombosController < ApplicationController
   def load_combo
     @combo = Combo.find_by id: params[:id]
     return if @combo
-    flash[:danger] = t("controllers.combo.not_exits")
+    flash[:danger] = t(".not_exits")
     redirect_to root_path
   end
 end

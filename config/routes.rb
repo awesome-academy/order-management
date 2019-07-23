@@ -9,5 +9,11 @@ Rails.application.routes.draw do
     resources :products
     resources :combo_products
     resources :combos
+    resources :tables
+    resources :bills
+    resources :bill_details
+    resources :bills do
+      resources :bill_details
+    end
   end
 end
