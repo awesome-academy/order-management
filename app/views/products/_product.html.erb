@@ -1,5 +1,5 @@
 <tr>
-  <td><%= image_tag(product.image.url, class: "img-responsive") if product.image? %></td>
+  <td><%= image_tag product.image.url, class: "img-responsive" %></td>
   <td>
     <%= link_to product.name, product %>
   </td>

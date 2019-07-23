@@ -1,0 +1,33 @@
+<% provide :title, t(".all_table") %>
+<div>
+<h1><%= t(".all_table") %></h1>
+<%= link_to t(".add_table"), new_table_path %>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="main-box no-header clearfix">
+      <div class="main-box-body clearfix">
+        <div class="table-responsive">
+          <table class="table user-list">
+            <thead>
+              <tr>
+                <th><span><%= t ".number" %></span></th>
+                <th><span><%= t ".description" %></span></th>
+                <th><span><%= t ".amount_chair" %></span></th>
+                <th><span><%= t ".action" %></span></th>
+              </tr>
+            </thead>
+              <tbody>
+                <% @tables.each do |table| %>
+                  <%= render table %>
+                <% end %>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= paginate @tables, theme: Settings.theme_config %>

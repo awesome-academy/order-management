@@ -13,10 +13,13 @@ vi:
       login: "Đăng nhập"
       profile: "Thông tin cá nhân"
       setting: "Cập nhật mật khẩu"
-      user: "Quản lý tài khoản"
-      product: "Quản lý sản phẩm"
-      combo: "Quản lý gói"
-      combo_product: "Quản lý gói sản phẩm"
+      user: "Tài khoản"
+      product: "Sản phẩm"
+      combo: "Gói"
+      combo_product: "Gói sản phẩm"
+      table: "Bàn"
+      bill: "Đặt món"
+      account: "Tài khoản cá nhân"
     footer:
       make_by: "Tạo bởi"
   home_pages:
@@ -53,6 +56,15 @@ vi:
       sure: "Đồng ý xóa?"
       show: "xem"
       edit: "sửa"
+    create:
+      success_create: "Tạo tài khoản thành công"
+    update:
+      success_edit: "Cập nhật khoản thành công"
+    destroy:
+      delete_s: "Xóa thành công"
+      delete_err: "Xóa không thành công"
+    load_user:
+      not_exits: "Tài khoản không tồn tại"
   shared:
     error_messages:
       contant: "Nội dung biểu mẫu"
@@ -64,6 +76,9 @@ vi:
       username: "Tên đăng nhập"
       password: "Mật khẩu"
       remember: "Nhớ mật tại máy này"
+    create:
+      err: "Tên đăng nhập mật khẩu không chính xác"
+      success: "Chào mừng tới ứng dụng gọi món"
   products:
     index:
       all_product: "Danh sách sản phẩm"
@@ -98,6 +113,7 @@ vi:
       sure: "Đồng ý?"
       delete: "xóa"
       action: "Hành động"
+      edit: "Sửa"
     combo_form:
       add_combo: "Thêm vào gói"
       product: "Sản phẩm"
@@ -105,6 +121,15 @@ vi:
       submit: "Gửi"
       select_combo: "Chọn gói"
       add_to_combo: "Thêm vào combo"
+    create:
+      success_create: "Tạo sản phẩm thành công"
+    update:
+      success_edit: "Sửa sản phẩm thành công"
+    destroy:
+      delete_s: "Xóa thành công"
+      delete_err: "Xóa thất bại"
+    load_product:
+      not_exits: "Gói sản phẩm này không tồn tại"
   combos:
     product_form:
       add_to_product: "Add to product"
@@ -151,6 +176,15 @@ vi:
       action: "Hành động"
       delete: "xóa"
       sure: "Đồng ý ?"
+    create:
+      success_create: "Tạo thành công"
+    update:
+      success_edit: "Cập nhật không thành công"
+    destroy:
+      delete_s: "Xóa thành công"
+      delete_err: "Xóa không thành công"
+    load_combo:
+      not_exits: "Gói không tồn tại"
   combo_products:
     index:
       all_combo_product: "Danh sách gói và sản phẩm"
@@ -161,39 +195,124 @@ vi:
     show:
       combo: "Gói"
       product: "Sản phẩm"
-  controllers:
-    sessions:
-      err: "Tên đăng nhập mật khẩu không chính xác"
-      success: "Chào mừng tới ứng dụng gọi món"
-    user:
-      success_create: "Tạo tài khoản thành công"
-      success_edit: "Cập nhật khoản thành công"
-      not_exits: "Tài khoản không tồn tại"
-      please_ln: "Vui lòng đăng nhập"
-      no_role: "Bạn không có quyền truy cập"
+    create:
+      success_create: "Tạo thành công"
+      error_create: "Tạo không thành công"
+    destroy:
       delete_s: "Xóa thành công"
       delete_err: "Xóa không thành công"
-    product:
-      success_create: "Tạo sản phẩm thành công"
-      success_edit: "Sửa sản phẩm thành công"
-      not_exits: "Sản phẩm không tồn tại"
-      please_ln: "Hãy đăng nhập"
-      no_role: "Bạn không có quyền truy cập"
+    load_combo_product:
+      not_exits: "Gói sản phẩm không tồn tại"
+  tables:
+    index:
+      all_table: "Danh sách bàn"
+      add_table: "Thêm bàn"
+      number: "Số bàn"
+      description: "Mô tả"
+      amount_chair: "Tổng số ghế"
+      action: "Hành động"
+    table:
+      delete: "Delete"
+      sure: "Sure ?"
+      show: "Show"
+      edit: "Edit"
+    form:
+      number: "Bàn số"
+      description: "Mô tả"
+      type_table: "Chọn loại bàn"
+      submit: "Gửi"
+      select_type: "Chọn loại bàn"
+    new:
+      create_table: "Tạo bàn"
+    edit:
+      edit_table: "Sửa bàn"
+    create:
+      success_create: "Tạo thành công"
+    update:
+      success_edit: "Sửa thành công"
+    destroy:
       delete_s: "Xóa thành công"
       delete_err: "Xóa thất bại"
-      not_exits: "Gói sản phẩm này không tồn tại"
-    combo_product:
+    load_table:
+      not_exits: "Bàn không tồn tại"
+  bills:
+    index:
+      all_table: "Toàn bộ bàn"
+      chair: "ghế"
+      full: "đầy"
+      table_full: "Bàn hết ghế"
+      table_not_null: "Bàn có khách / vẫn còn ghế"
+      table_empty: "Bàn trống"
+      single_chair: "Ghế đơn"
+      double_chair: "Ghế đôi"
+      four_chair: "Ghế bốn"
+      eight_chair: "Ghế tám"
+    show:
+      table_info: "Thông tin khách hàng"
+      not_exits: "Bàn không tồn tại"
+      table_empty: "Bàn trống"
+      create_table: "Tạo bàn"
+      people: "người"
+      cancle_order: "Hủy đơn"
+      single_chair: "Ghế đơn"
+      double_chair: "Ghế đôi"
+      four_chair: "Ghế bốn"
+      eight_chair: "Ghế tám"
+    form:
+      name: "Tên khách hàng"
+      submit: "Gửi"
+      number_customer: "Số khách hàng"
+    create:
+      customer_exists: "Tên tồn tại trong bàn"
       success_create: "Tạo thành công"
-      error_create: "Tạo không thành công"
+      error_create: "Tạo thất bại"
+    update:
+      update_s: "Hủy thành công"
+      update_e: "Hủy thất bại"
+    destroy:
       delete_s: "Xóa thành công"
-      delete_err: "Xóa không thành công"
+      delete_err: "Xóa thất bại"
+    load_bill:
+      not_exits: "Đơn không tồn tại"
+  bill_details:
+    index:
+      submit: "cập nhật"
+      name: "Tên sản phẩm"
+      type: "Loại"
+      number: "Số lượng"
+      price: "Giá"
+      action: "Hành động"
+      combo: "Gói"
+      product: "Sản phẩm"
+      delete: "xóa"
+      sure: "Đồng ý xóa sản phẩm"
+      payment: "Thanh toán"
+      cancle_order: "Hủy đơn hàng"
+      chair: "ghế"
+      full: "Đầy"
+      not_exits: "Đơn không tồn tại"
+    product:
+      image: "Ảnh"
+      name: "Tên sản hẩm"
+      price: "Giá"
+      action: "Hành động"
+      add: "Thêm"
     combo:
+      name: "Tên gói"
+      price: "Giá"
+      action: "Hành động"
+      add: "Thêm"
+    create:
       success_create: "Tạo thành công"
-      error_create: "Tạo không thành công"
+      error_create: "Tạo thất bại"
+    update:
+      success_edit: "Sửa thành công"
+      error_update: "Cật nhật thất bại"
+    destroy:
       delete_s: "Xóa thành công"
-      delete_err: "Xóa không thành công"
-      not_exits: "Gói không tồn tại"
-      success_edit: "Cập nhật thành công"
+      delete_err: "Xóa thất bại"
+    load_bill_detail:
+      not_exits: "Chi tiết đơn không tồn tại"
   views:
     pagination:
       first: "« Đầu trang"

@@ -13,10 +13,13 @@ en:
       login: "Login"
       profile: "Profile"
       setting: "Update password"
-      user: "Account management"
-      product: "Product management"
-      combo: "Combo management"
-      combo_product: "Combo product management"
+      user: "Account"
+      product: "Product"
+      combo: "Combo"
+      combo_product: "Combo product"
+      table: "Table"
+      bill: "Order product"
+      account: "My Account"
     footer:
       make_by: "Create"
   home_pages:
@@ -53,6 +56,15 @@ en:
       sure: "You sure?"
       show: "show"
       edit: "edit"
+    create:
+      success_create: "Create success"
+    update:
+      success_edit: "Update success"
+    destroy:
+      delete_s: "Delete success"
+      delete_err: "Delete fail"
+    load_user:
+      not_exits: "User not exists"
   shared:
     error_messages:
       contant: " The form contains"
@@ -64,6 +76,9 @@ en:
       username: "Username"
       password: "Password"
       remember: "Remember me on this computer"
+    create:
+      err: "Invalid username or password"
+      success: "Wellcome to order app"
   products:
     index:
       all_product: "All Product"
@@ -98,6 +113,7 @@ en:
       sure: "Sure?"
       delete: "delete"
       action: "Action"
+      edit: "Edit"
     combo_form:
       add_combo: "Add to combo"
       product: "Product"
@@ -105,6 +121,15 @@ en:
       submit: "Submit"
       select_combo: "Select combo"
       add_to_combo: "Add to combo"
+    create:
+      success_create: "Create success"
+    update:
+      success_edit: "Update success"
+    destroy:
+      delete_s: "Destroy success"
+      delete_err: "Destroy fail"
+    load_product:
+      not_exits: "Product not exits"
   combos:
     product_form:
       add_to_product: "Add to product"
@@ -151,6 +176,15 @@ en:
       action: "Action"
       delete: "delete"
       sure: "Sure ?"
+    create:
+      success_create: "Create success"
+    update:
+      success_edit: "Update fails"
+    destroy:
+      delete_s: "Destroy success"
+      delete_err: "Destroy fail"
+    load_combo:
+      not_exits: "Combo product not exist"
   combo_products:
     index:
       all_combo_product: "List combo product"
@@ -161,39 +195,124 @@ en:
     show:
       combo: "Combo"
       product: "Product"
-  controllers:
-    sessions:
-      err: "Invalid username or password"
-      success: "Wellcome to order app"
-    user:
-      success_create: "Create account success"
-      success_edit: "Edit account success"
-      not_exits: "User not exists"
-      please_ln: "Please login"
-      no_role: "You don't have access"
-      delete_s: "Delete success"
-      delete_err: "Delete fail"
-    product:
-      success_create: "Create product success"
-      success_edit: "Edit product success"
-      not_exits: "Product not exists"
-      please_ln: "Please login"
-      no_role: "You don't have access"
-      delete_s: "Delete success"
-      delete_err: "Delete fail"
-      not_exits: "Combo product not exits"
-    combo_product:
+    create:
       success_create: "Create success"
       error_create: "Create fail"
-      delete_s: "Delete sucess"
-      delete_err: "Delete fail"
-    combo:
-      success_create: "Create success"
-      success_edit: "Edit success"
-      delete_s: "Delete success"
-      delete_err: "Delete Fail"
-      not_exits: "Combo not exists"
+    destroy:
+      delete_s: "Destroy success"
+      delete_err: "Destroy fail"
+    load_combo_product:
+      not_exits: "Combo product not exists"
+  tables:
+    index:
+      all_table: "List table"
+      add_table: "Add table"
+      number: "Number table"
+      description: "Description"
+      amount_chair: "Amount chair"
+      action: "Action"
+    table:
+      delete: "Delete"
+      sure: "Sure ?"
+      show: "Show"
+      edit: "Edit"
+    form:
+      number: "Table number"
+      description: "Description"
+      type_table: "Type table"
+      submit: "Submit"
+      select_type: "Select table type"
+    new:
+      create_table: "Create table"
+    edit:
+      edit_table: "Edit table"
+    create:
+      success_create: "Success create"
+    update:
       success_edit: "Success edit"
+    destroy:
+      delete_s: "Delete success"
+      delete_err: "Delete fail"
+    load_table:
+      not_exits: "Table not exists"
+  bills:
+    index:
+      all_table: "All table"
+      chair: "chair"
+      full: "full"
+      table_full: "Table full"
+      table_not_null: "Table with customers /there are still empty seats"
+      table_empty: "Table empty"
+      single_chair: "Single chair"
+      double_chair: "Double chairs"
+      four_chair: "Four chairs"
+      eight_chair: "Eight chairs"
+    show:
+      table_info: "Customer information"
+      not_exits: "Table not esixts"
+      table_empty: "Table empty"
+      create_table: "Create table"
+      people: "people"
+      cancle_order: "Cancle order"
+      single_chair: "Single chair"
+      double_chair: "Double chairs"
+      four_chair: "Four chairs"
+      eight_chair: "Eight chairs"
+    form:
+      name: "Customer name"
+      submit: "Submit"
+      number_customer: "Number customer"
+    create:
+      customer_exists: "Name exists in the table"
+      success_create: "Create success"
+      error_create: "Create fail"
+    update:
+      update_s: "Cancle success"
+      update_e: "Cancle fail"
+    destroy:
+      delete_s: "Delete success"
+      delete_err: "Delete fail"
+    load_bill:
+      not_exits: "Bill not exits"
+  bill_details:
+    index:
+      submit: "update"
+      name: "Name product"
+      type: "Type"
+      number: "Number"
+      price: "Price"
+      action: "Action"
+      combo: "Combo"
+      product: "Product"
+      delete: "delete"
+      sure: "Sure delete"
+      payment: "Payment"
+      cancle_order: "Cancle order"
+      chair: "chair"
+      full: "Full"
+      not_exits: "Bill not exits"
+    product:
+      image: "Image"
+      name: "Name product"
+      price: "Price"
+      action: "Action"
+      add: "Add"
+    combo:
+      name: "Name Combo"
+      price: "Price"
+      action: "Action"
+      add: "Add"
+    create:
+      success_create: "Create success"
+      error_create: "Create fail"
+    update:
+      success_edit: "Edit success"
+      error_update: "Update fail"
+    destroy:
+      delete_s: "Delete success"
+      delete_err: "Delete fail"
+    load_bill_detail:
+      not_exits: "BillDetail not exists"
   views:
     pagination:
       first: "« First"

@@ -4,9 +4,9 @@ class ComboProductsController < ApplicationController
   def create
     @combo_product = ComboProduct.new combo_product_params
     if @combo_product.save
-      flash[:success] = t("controllers.combo_product.success_create")
+      flash[:success] = t(".success_create")
     else
-      flash[:danger] = t("controllers.combo_product.error_create")
+      flash[:danger] = t(".error_create")
     end
     redirect_back_or @combo_product
   end
@@ -21,9 +21,9 @@ class ComboProductsController < ApplicationController
 
   def destroy
     if @combo_product.destroy
-      flash[:success] = t("controllers.combo_product.delete_s")
+      flash[:success] = t(".delete_s")
     else
-      flash[:danger] = t("controllers.combo_product.delete_err")
+      flash[:danger] = t(".delete_err")
     end
     redirect_back_or @combo_product
   end
@@ -36,7 +36,7 @@ class ComboProductsController < ApplicationController
   def load_combo_product
     @combo_product = ComboProduct.find_by id: params[:id]
     return if @combo_product
-    flash[:danger] = t("controllers.product.not_exits")
+    flash[:danger] = t(".not_exits")
     redirect_to root_path
   end
 end

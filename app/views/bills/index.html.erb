@@ -1,0 +1,46 @@
+<% provide :title, t(".all_table") %>
+<div>
+  <h1><%= t(".all_table") %></h1>
+</div>
+
+<div class="row order">
+
+  <div class="status-orger">
+    <div class="note">
+      <div class="dot bg-red"></div>
+      <span><%= t ".table_full" %></span>
+    </div>
+    <div class="note">
+      <div class="dot bg-green"></div>
+      <span><%= t ".table_empty" %></span>
+    </div>
+  </div>
+
+  <% @tables.each do |table| %>
+    <div class="col-xs-4 col-sm-3 col-md-2">
+      <div class="tables">
+        <div class="status">
+          <div class="dot <%= table.bills.active.size > 0 ? "bg-red" : "bg-green" %>">
+          </div>
+          <div class="status-table">
+          <%= table.number %> :
+            <% if table.amount_chair == Settings.single_chair %>
+              <%= t ".single_chair" %>
+            <% elsif table.amount_chair == Settings.double_chair %>
+              <%= t ".double_chair" %>
+            <% elsif table.amount_chair == Settings.four_chair %>
+              <%= t ".four_chair" %>
+            <% else %>
+              <%= t ".eight_chair"%>
+            <% end %>
+          </div>
+        </div>
+        <%= link_to bill_path table.id do %>
+          <%= image_tag Settings.url_table, class: "img-responsive" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @tables, theme: Settings.theme_config %>

@@ -1,0 +1,34 @@
+<% provide :title, t(".table_info") %>
+<div class="row add-combo top">
+    <div class="status-table bg-while">
+      <% if @table.amount_chair == Settings.single_chair %>
+        <h3><%= t ".single_chair" %></h3>
+      <% elsif @table.amount_chair == Settings.double_chair %>
+        <h3><%= t ".double_chair" %></h3>
+      <% elsif @table.amount_chair == Settings.four_chair %>
+        <h3><%= t ".four_chair" %></h3>
+      <% else %>
+        <h3><%= t ".eight_chair"%></h3>
+      <% end %>
+    </div>
+</div>
+
+<div class="row add-combo">
+  <div class="col-xs-12 col-md-12">
+    <ul class="ls-customer nav av-sidebar">
+      <% if @bill_active %>
+        <li><%= link_to (@bill_active.name + " (" + @bill_active.number_customer.to_s + " - " + t(".people") + ") "),
+  bill_bill_details_path(@bill_active) %></li>
+        <%= form_for @bill_active do |f| %>
+          <%= f.hidden_field :status, value: Settings.cancle %>
+          <%= f.submit t(".cancle_order"), class: "btn btn-primary mt-1" %>
+        <% end %>
+      <% else %>
+        <h3 class="text-center"><%= t ".table_empty" %></h3>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-xs-12 col-md-12">
+    <%= render "form" unless @bill_active %>
+  </div>
+</div>
