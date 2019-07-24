@@ -30,7 +30,7 @@
         </tbody>
     </table>
     <% if @bill_details.present? %>
-      <%= link_to t(".payment"), "#", class: "btn btn-success" %>
+      <%= link_to t(".payment"), payment_path(id: params[:bill_id]), class: "btn btn-success" %>
     <% end %>
   </div>
   <div class="col-xs-12 col-md-5">

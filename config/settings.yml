@@ -38,5 +38,4 @@ single_chair: "single_chair"
 double_chair: "double_chair"
 four_chair: "four_chair"
 eight_chair: "four_chair"
-unactive: 0
-cancle: "cancle"
+unactive: "unactive"

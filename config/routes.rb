@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     resources :bills do
       resources :bill_details
     end
+    get "/payment", to: "bills#payment"
   end
 end

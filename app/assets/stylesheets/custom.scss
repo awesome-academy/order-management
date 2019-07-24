@@ -1,6 +1,8 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'variable';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 // custom bootstrap
 
@@ -248,4 +250,16 @@ body{
 }
 .ls-customer {
   list-style: none;
+}
+
+// payment
+
+.payment {
+  margin-left: 10px;
+}
+
+// cancel
+.cancel-c a {
+  padding: 0px !important;
+  margin-bottom: 15px;
 }
