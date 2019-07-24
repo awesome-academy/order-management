@@ -258,6 +258,7 @@ en:
       double_chair: "Double chairs"
       four_chair: "Four chairs"
       eight_chair: "Eight chairs"
+      sure: "Sure"
     form:
       name: "Customer name"
       submit: "Submit"
@@ -269,11 +270,24 @@ en:
     update:
       update_s: "Cancle success"
       update_e: "Cancle fail"
+      payment_s: "Payment success"
+      payment_e: "Payment fail"
     destroy:
       delete_s: "Delete success"
       delete_err: "Delete fail"
     load_bill:
       not_exits: "Bill not exits"
+    payment:
+      payment: "Payment"
+      product_title: "Infomation product"
+      name: "Name product"
+      type: "Type"
+      price: "Price"
+      count: "Count"
+      sum_price: "Sum "
+      customer: "Infomation customer"
+      name_c: "Name:"
+      name_u: "Created by:"
   bill_details:
     index:
       submit: "update"

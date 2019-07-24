@@ -1,0 +1,47 @@
+<div class="container main">
+  <div class="row order payment">
+    <div class="col-xs-12 col-md-7 border-custom">
+      <h3><%= t ".product_title" %></h3>
+      <table class="table user-list">
+        <thead>
+          <tr>
+            <th><span><%= t ".name" %></span></th>
+            <th><span><%= t ".type" %></span></th>
+            <th><span><%= t ".price" %></span></th>
+            <th><span><%= t ".count" %></span></th>
+            <th><span><%= t ".sum_price" %></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @bill.bill_details.each do |bill_detail| %>
+            <tr>
+              <td><span><%= get_name_bill bill_detail %></span></td>
+              <td><span><%= get_type bill_detail %></span></td>
+              <td><span><%= bill_detail.price %> <%= Settings.unit %></span></td>
+              <td><span><%= bill_detail.count %></span></td>
+              <td><span><%= get_price bill_detail %> <%= Settings.unit %></span></th>
+            </tr>
+          <% end %>
+          <tr>
+            <td colspan="3" ><span><%= t ".sum_price" %>:</span></td>
+            <td><span><%= sum_prduct @bill %></span></td>
+            <td><span><%= sum_price @bill %> <%= Settings.unit %></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= form_for @bill do |f| %>
+        <%= f.hidden_field :status, value: Settings.unactive %>
+        <%= f.submit t(".payment"), class: "btn btn-success mt-1" %>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-md-5 ">
+      <div class="border-custom">
+        <h3><%= t ".customer" %></h3>
+        <div class="customer-info">
+          <p><%= t ".name_c" %> <%= @bill.name %></p>
+          <p><%= t ".name_u" %> <%= @bill.user_name %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

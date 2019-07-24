@@ -1,6 +1,6 @@
 class Bill < ApplicationRecord
   BILL_PARAMS = %i(name status user_id table_id number_customer).freeze
-  enum status: {cancle: 2, active: 1, unactive: 0}
+  enum status: {active: 1, unactive: 0}
 
   belongs_to :user
   belongs_to :table
@@ -15,6 +15,7 @@ class Bill < ApplicationRecord
   validates :number_customer, presence: true, numericality: true
   
   delegate :number, to: :table, prefix: true
+  delegate :name, to: :user, prefix: true
   delegate :id, to: :table, prefix: true
   delegate :sum_chair, to: :bill, prefix: true
 

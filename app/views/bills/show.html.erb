@@ -17,12 +17,10 @@
   <div class="col-xs-12 col-md-12">
     <ul class="ls-customer nav av-sidebar">
       <% if @bill_active %>
-        <li><%= link_to (@bill_active.name + " (" + @bill_active.number_customer.to_s + " - " + t(".people") + ") "),
+        <li class="cancel-c"><%= link_to (@bill_active.name + " (" + @bill_active.number_customer.to_s + " - " + t(".people") + ") "),
   bill_bill_details_path(@bill_active) %></li>
-        <%= form_for @bill_active do |f| %>
-          <%= f.hidden_field :status, value: Settings.cancle %>
-          <%= f.submit t(".cancle_order"), class: "btn btn-primary mt-1" %>
-        <% end %>
+        <%= link_to t(".cancle_order"), @bill_active, method: :delete, data: { confirm: t(".sure") },
+    class: "btn btn-danger btn-sm" %>
       <% else %>
         <h3 class="text-center"><%= t ".table_empty" %></h3>
       <% end %>

@@ -258,6 +258,7 @@ vi:
       double_chair: "Ghế đôi"
       four_chair: "Ghế bốn"
       eight_chair: "Ghế tám"
+      sure: "Đồng ý"
     form:
       name: "Tên khách hàng"
       submit: "Gửi"
@@ -269,11 +270,24 @@ vi:
     update:
       update_s: "Hủy thành công"
       update_e: "Hủy thất bại"
+      payment_s: "Thanh toán thành công"
+      payment_e: "Thanh toán thất bại"
     destroy:
       delete_s: "Xóa thành công"
       delete_err: "Xóa thất bại"
     load_bill:
       not_exits: "Đơn không tồn tại"
+    payment:
+      payment: "Thanh toán"
+      product_title: "Thông tin sản phẩm"
+      name: "Tên sản phẩm"
+      type: "Loại"
+      price: "Giá"
+      count: "Số lượng"
+      sum_price: "Tổng tiền"
+      customer: "Thông tin khách hàng"
+      name_c: "Họ tên:"
+      name_u: "Tạo bởi:"
   bill_details:
     index:
       submit: "cập nhật"

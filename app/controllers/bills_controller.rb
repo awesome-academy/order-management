@@ -1,5 +1,5 @@
 class BillsController < ApplicationController
-  before_action :load_bill, only: %i(destroy update)
+  before_action :load_bill, only: %i(destroy update payment)
 
   def index
     @tables = Table.includes(:bills).page(params[:page]).per Settings.num_table_order
@@ -28,9 +28,9 @@ class BillsController < ApplicationController
 
   def update
     if @bill.update status: bill_params[:status]
-      flash[:success] = t(".update_s")
+      flash[:success] = t(".payment_s")
     else
-      flash[:danger] = t(".update_e")
+      flash[:danger] = t(".payment_e")
     end
     redirect_to bill_path(@bill.table_id)
   end
@@ -43,6 +43,8 @@ class BillsController < ApplicationController
     end
     redirect_to @bill
   end
+
+  def payment; end
 
   private
   def bill_params
