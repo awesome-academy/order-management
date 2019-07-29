@@ -11,7 +11,7 @@ min_address: 3
 max_address: 250
 num_user: 10
 url_avata: "https://bootdey.com/img/Content/user_1.jpg"
-theme_config: "twitter-bootstrap-3"
+theme_config: "twitter-bootstrap-4"
 num_product: 10
 unit: "VND"
 num_combo_product: 10
@@ -39,3 +39,7 @@ double_chair: "double_chair"
 four_chair: "four_chair"
 eight_chair: "four_chair"
 unactive: "unactive"
+number_in_page: 10
+allowed: "allowed"
+unallowed: "unallowed"
+start: 1

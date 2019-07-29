@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   USER_PARAMS = %i(phone address name username role password password_confirmation).freeze
-  enum role: {employee: 0, manager: 1}
+  enum role: {manager: 0, chef: 1, waiter: 2}
 
   has_many :bills, dependent: :destroy
 

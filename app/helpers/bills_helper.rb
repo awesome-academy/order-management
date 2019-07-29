@@ -18,4 +18,13 @@ module BillsHelper
   def get_price bill_detail
     bill_detail.price * bill_detail.count
   end
+
+  def sum_product bill_detail_count, combo_product_count
+    bill_detail_count * combo_product_count
+  end
+
+  def get_bill table
+    return if table.bills.active.size == 0
+    table.bills.active.first
+  end
 end

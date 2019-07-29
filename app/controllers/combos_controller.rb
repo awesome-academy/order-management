@@ -1,6 +1,6 @@
 class CombosController < ApplicationController
   before_action :logged_in_user, except: %i(new create)
-  before_action :load_combo, except: %i(new create index)
+  before_action :load_combo, except: %i(new create index change_combo_status)
   before_action :admin_user, except: %i(show)
 
   def index
@@ -24,12 +24,21 @@ class CombosController < ApplicationController
   def edit; end
 
   def update
-    if @combo.update combo_params
-      flash[:success] = t("success_edit")
-      redirect_to @combo
-    else
-      render :edit
+    respond_to do |format|
+      if @combo.update combo_params
+        format.html {redirect_to @combo}
+      else
+        format.html {render :edit}
+      end
     end
+  end
+
+  def change_combo_status
+    byebug
+    # @combo.update
+    # respond_to do |format|
+    #   fomat.js
+    # end
   end
 
   def show

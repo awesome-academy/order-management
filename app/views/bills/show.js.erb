@@ -1,0 +1,2 @@
+$('.modal-body').html('<%= j render "bills/form", table: @table, bill: @bill %>');
+$('.modal-title').html('<%= "#{@table.number} - #{@table.amount_chair}" %>')

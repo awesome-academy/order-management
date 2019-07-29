@@ -1,17 +1,43 @@
-<% provide :title, t(".login") %>
-<h1 class="text-center"><%= t(".login") %></h1>
+<div class="row">
+  <div class="col-lg-12 mb-4">
+    <div class="card card-small mb-4">
+      <div class="card-header border-bottom">
+        <h6 class="m-0"><%= t ".login" %></h6>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item p-0 px-3 pt-3">
+          <div class="row">
+            <div class="col-sm-12 col-md-4 mb-3">
+              <%= form_for :session, url: login_path, class: "form-group" do |f| %>
+                <%= f.label t(".username") %>
+                <div class="input-group mb-3">
+                  <div class="input-group input-group-seamless">
+                    <span class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">person</i>
+                      </span>
+                    </span>
+                    <%= f.text_field :username, class: "form-control", id: "form1-username", placeholder: "Username" %>
+                  </div>
+                </div>
 
-<div class="row" id="login-form">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-
-      <%= f.label t(".username") %>
-      <%= f.text_field :username, class: "form-control mb-1" %>
-
-      <%= f.label t(".password") %>
-      <%= f.password_field :password, class: "form-control" %>
-
-      <%= f.submit t(".login"), class: "btn btn-primary mt-1" %>
-    <% end %>
+                <%= f.label t(".password") %>
+                <div class="input-group mb-3">
+                  <div class="input-group input-group-seamless">
+                    <%= f.text_field :password, class: "form-control",id: "form2-password", placeholder: "Password", type: "password" %>
+                    <span class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock</i>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <%= f.submit t(".login"), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

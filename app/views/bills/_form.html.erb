@@ -3,9 +3,6 @@
   <%= f.label t ".name" %>
   <%= f.text_field :name, class: "form-control mb-1" %>
 
-  <%= f.label t ".number_customer" %>
-  <%= f.text_field :number_customer, class: "form-control mb-1" %>
-
   <%= f.hidden_field :status, value: Settings.status_bill %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :table_id, value: @table.id %>

@@ -1,61 +1,60 @@
 <% provide :title, @product.name %>
+
 <div class="row">
+  <div class="col-lg-5 col-md-5 col-sm-12 mb-4">
+    <div class="card card-small blog-comments">
+      <div class="card-header border-bottom">
+        <h6 class="m-0"><%= t ".infomation_product" %></h6>
+      </div>
+      <div class="card-body p-0">
+        <div class="blog-comments__item d-flex p-3">
+          <div class="blog-comments__avatar mr-3">
+            <%= image_tag @product.image.url, class: "image-product" %>
+          </div>
+          <div class="blog-comments__content">
+            <div class="blog-comments__meta text-muted">
+              <%= link_to @product.name, class: "text-secondary" %>
+            </div>
+            <p class="m-0 my-1 mb-2 text-muted"><%= @product.price %> <%= Settings.unit %></p>
+            <div class="blog-comments__actions">
+              <div class="btn-group btn-group-sm">
+                <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                  <input type="checkbox" id="customToggle2" name="customToggle2" class="custom-control-input" checked="checked">
+                  <label class="custom-control-label" for="customToggle2"><%= t ".checked" %></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <aside class="col-md-12">
-    <%= link_to t(".edit"), edit_product_path(@product) %> | 
-    <%= link_to t(".list_product"), products_path %>
-  </aside>
-
-  <aside class="col-md-12 show-product">
-    <section class="product_info">
-      <h4 class="text-center"><%= t ".info" %></h4><hr>
-      <table class="table user-list">
-        <thead>
-          <tr>
-            <th><span><%= t ".name" %></span></th>
-            <th><span><%= @product.name %></span></th>
-          </tr>
-          <tr>
-            <th><span><%= t ".price" %></span></th>
-            <th><span><%= @product.price %> <%= Settings.unit %></span></th>
-          </tr>
-          <tr>
-            <th><span><%= t ".status" %></span></th>
-            <th><%= @product.allowed? ? t(".allowed") : t(".unallowed")  %></span></th>
-          </tr>
-          <tr>
-            <th><span><%= t ".image" %></span></th>
-            <th><%= image_tag @product.image.url if @product.image? %></th>
-          </tr>
-        </thead>
-      </table>
-    </section>
-
-    <section class="combo_info">
-      <h4 class="text-center"><%= t ".combo" %></h4><hr>
-      <table class="table user-list">
-        <thead>
-          <tr>
-            <th><span><%= t ".name" %></span></th>
-            <th><span><%= t ".price" %></span></th>
-            <th><span><%= t ".action" %></span></th>
-          </tr>
-        </thead>
-          <tbody>
-            <% @product.combos.each do |combo| %>
+  <div class="col-lg-7 col-md-7 col-sm-12 mb-4">
+    <div class="card card-small">
+      <div class="card-header border-bottom">
+        <h6 class="m-0"><%= t ".list_combo" %></h6>
+      </div>
+      <div class="card-body p-0">
+        <table class="table mb-0">
+          <thead class="bg-light">
+            <tr>
+              <th scope="col" class="border-0"><%= t ".stt" %></th>
+              <th scope="col" class="border-0"><%= t ".name" %></th>
+              <th scope="col" class="border-0"><%= t ".price" %></th>
+            </tr>
+          </thead>
+          <tbody id="product-in-combo">
+            <% @product.combos.each_with_index do |combo, key| %>
               <tr>
-                <th><span><%= combo.name %></span></th>
-                <th><span><%= combo.price %> <%= Settings.unit %></span></th>
-                <th><%= link_to t(".delete"), find_combo_product(combo.id, @product.id), method: :delete,
-  data: { confirm: t(".sure") } %></th>
+                <td><%= get_index key %></td>
+                <td><%= link_to combo.name, combo %></td>
+                <td><%= combo.price %></td>
               </tr>
             <% end %>
           </tbody>
-      </table>
-    </section>
-  </aside>
-
-  <aside class="col-md-12 add-combo">
-    <%= render "combo_form" %>
-  </aside>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

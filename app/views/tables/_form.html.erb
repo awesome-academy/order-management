@@ -1,13 +1,28 @@
-<%= form_for @table do |f| %>
+<%= form_for @table, class: "form-group" do |f| %>
   <%= render "shared/error_messages", object: f.object %>
-  <%= f.label t(".number") %>
-  <%= f.text_field :number, class: "form-control mb-1" %>
+  <div class="row">
+    <div class="col">
+      <%= f.label t(".number") %>
+      <%= f.text_field :number, class: "form-control mb-1" %>
+    </div>
+    <div class="col">
+      <%= f.label t(".type_table") %>
+      <%= f.select :amount_chair, Table.amount_chairs.keys.to_a, {include_blank: t(".select_type")}, {class: "form-control"} %>
+    </div>
+  </div>
 
-  <%= f.label t(".description") %>
-  <%= f.text_area :description, class: "form-control mb-1" %>
-
-  <%= f.label t(".type_table") %>
-  <%= f.select :amount_chair, options_for_select(Table.amount_chairs.map { |key, value| [key.humanize, key] }), {include_blank: t(".select_type")}, {class: "form-control"} %><br>
-
-  <%= f.submit t(".submit"), class: "btn btn-primary" %>
+  <div class="row mb-2">
+    <div class="col">
+      <%= f.label t(".description") %>
+      <%= f.text_area :description, class: "ckeditor" %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <%= f.submit t(".submit"), class: "btn btn-primary" %>
+      <%= link_to t(".list_table"), tables_path, class: "btn btn-success btn-sm" %>
+      <%= button_tag t(".reset"), type: :reset, class: "btn btn-warning btn-sm mr-2" %>
+    </div>
+  </div>
 <% end %>

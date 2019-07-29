@@ -1,5 +1,5 @@
 class Bill < ApplicationRecord
-  BILL_PARAMS = %i(name status user_id table_id number_customer).freeze
+  BILL_PARAMS = %i(name status user_id table_id).freeze
   enum status: {active: 1, unactive: 0}
 
   belongs_to :user
@@ -12,7 +12,6 @@ class Bill < ApplicationRecord
   validates :status, presence: true
   validates :user_id, presence: true, numericality: true
   validates :table_id, presence: true, numericality: true
-  validates :number_customer, presence: true, numericality: true
   
   delegate :number, to: :table, prefix: true
   delegate :name, to: :user, prefix: true
@@ -22,4 +21,5 @@ class Bill < ApplicationRecord
   scope :table_bill_active, -> (table_id){where(table_id: table_id, status: 1)}
   scope :name_in_table, -> (table_id, name){where(table_id: table_id, name: name, status: 1)}
   scope :sum_chair, -> {sum(:bill_details).group_by(:id, desc)}
+  scope :order_by, -> {order(created_at: :desc)}
 end

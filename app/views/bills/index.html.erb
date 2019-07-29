@@ -1,46 +1,48 @@
 <% provide :title, t(".all_table") %>
-<div>
-  <h1><%= t(".all_table") %></h1>
-</div>
 
-<div class="row order">
-
-  <div class="status-orger">
-    <div class="note">
-      <div class="dot bg-red"></div>
-      <span><%= t ".table_full" %></span>
-    </div>
-    <div class="note">
-      <div class="dot bg-green"></div>
-      <span><%= t ".table_empty" %></span>
-    </div>
-  </div>
-
+<div class="row">
   <% @tables.each do |table| %>
-    <div class="col-xs-4 col-sm-3 col-md-2">
-      <div class="tables">
-        <div class="status">
-          <div class="dot <%= table.bills.active.size > 0 ? "bg-red" : "bg-green" %>">
-          </div>
-          <div class="status-table">
-          <%= table.number %> :
-            <% if table.amount_chair == Settings.single_chair %>
-              <%= t ".single_chair" %>
-            <% elsif table.amount_chair == Settings.double_chair %>
-              <%= t ".double_chair" %>
-            <% elsif table.amount_chair == Settings.four_chair %>
-              <%= t ".four_chair" %>
-            <% else %>
-              <%= t ".eight_chair"%>
+    <% bill = get_bill table %>
+    <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+      <div class="stats-small stats-small--1 card card-small">
+        <div class="card-body p-0 d-flex">
+          <div class="table-information d-flex flex-column m-auto">
+            <%= link_to bill.nil? ? bill_path(table.id) : bill_bill_details_path(bill.id),
+  bill.nil? ? {"data-toggle": "modal", "data-target": "#add-bill", remote: true} : {} do %>
+              <div class="stats-small__data text-center">
+                <span class="stats-small__label text-uppercase <%= bill.nil? ? "bg-success" : "bg-danger" %> " style="color: #fff"><%= table.number %></span>
+                <h6 class="count my-3">
+                  <%= bill.nil? ? "-" : bill.name %>
+                </h6>
+              </div>
+              <div class="stats-small__data">
+                <span class="stats-small__percentage stats-small__percentage--increase">
+                  <%= table.amount_chair %>
+                </span>
+              </div>
             <% end %>
           </div>
         </div>
-        <%= link_to bill_path table.id do %>
-          <%= image_tag Settings.url_table, class: "img-responsive" %>
-        <% end %>
       </div>
     </div>
+    
   <% end %>
+</div>
+
+<div class="modal fade" id="add-bill">
+  <div class="modal-dialog modal-dialog-centered width-80">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t ".close" %></button>
+      </div> 
+    </div>
+  </div>
 </div>
 
 <%= paginate @tables, theme: Settings.theme_config %>

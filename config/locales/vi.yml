@@ -1,4 +1,11 @@
 vi:
+  activerecord:
+    attributes:
+      user:
+        role:
+          chef: "Đầu bếp"
+          waiter: "Phục vụ"
+          manager: "Quản lý"
   layouts:
     application:
       title: "Ruby on Rails dự án 1"
@@ -20,6 +27,7 @@ vi:
       table: "Bàn"
       bill: "Đặt món"
       account: "Tài khoản cá nhân"
+      list_bill: "Đơn hàng"
     footer:
       make_by: "Tạo bởi"
   home_pages:
@@ -121,6 +129,7 @@ vi:
       submit: "Gửi"
       select_combo: "Chọn gói"
       add_to_combo: "Thêm vào combo"
+      amount_product: "Tổng sản phẩm"
     create:
       success_create: "Tạo sản phẩm thành công"
     update:
@@ -136,6 +145,7 @@ vi:
       product: "Product"
       select_product: "Select product"
       submit: "Gửi"
+      amount_product: "Tổng sản phẩm"
     form:
       name: "Tên"
       price: "Giá"
@@ -186,12 +196,18 @@ vi:
     load_combo:
       not_exits: "Gói không tồn tại"
   combo_products:
+    edit_combo_product:
+      update_count_combo_product: "Cập nhật"
+      count: "Số lượng"
+    new_combo_product:
+      sure: "Đồng ý! Xóa sản phẩm khỏi combo"
     index:
       all_combo_product: "Danh sách gói và sản phẩm"
       combo_name: "Tên gói"
       product_name: "Tên sản phẩm"
       action: "Hành động"
       sure: "Đồng ý?"
+      amount_product: "Tổng sản phẩm"
     show:
       combo: "Gói"
       product: "Sản phẩm"
@@ -237,6 +253,7 @@ vi:
       not_exits: "Bàn không tồn tại"
   bills:
     index:
+      customer: "khách hàng"
       all_table: "Toàn bộ bàn"
       chair: "ghế"
       full: "đầy"
@@ -288,6 +305,13 @@ vi:
       customer: "Thông tin khách hàng"
       name_c: "Họ tên:"
       name_u: "Tạo bởi:"
+    list_bill:
+      all_bill: "Đơn hàng"
+      name_c: "Tên khách hàng"
+      name_p: "Tên sản phẩm"
+      count: "Số lượng"
+      type: "Loại"
+      product: "sản phẩm"
   bill_details:
     index:
       submit: "cập nhật"

@@ -6,13 +6,11 @@ class BillsController < ApplicationController
   end
 
   def show
-    @bill_active = Bill.includes(:table).table_bill_active(params[:id]).take
-    @bill = Bill.new
     @table = Table.find_by id: params[:id]
-    return if @table
-    flash[:danger] = t(".not_exits")
-    store_location
-    redirect_to root_path
+    @bill = Bill.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -22,7 +20,7 @@ class BillsController < ApplicationController
       redirect_to bill_bill_details_path(@bill)
     else
       flash[:danger] = t(".error_create")
-      redirect_to bill_path(@bill.table_id)
+      redirect_to bills_path
     end
   end
 
@@ -32,7 +30,7 @@ class BillsController < ApplicationController
     else
       flash[:danger] = t(".payment_e")
     end
-    redirect_to bill_path(@bill.table_id)
+    redirect_to bills_path
   end
 
   def destroy
@@ -45,6 +43,10 @@ class BillsController < ApplicationController
   end
 
   def payment; end
+
+  def list_bill
+    @bills = Bill.active.order_by.page(params[:page]).per Settings.num_bill
+  end
 
   private
   def bill_params

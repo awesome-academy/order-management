@@ -1,14 +1,24 @@
-<%= form_for @combo do |f| %>
+<%= form_for @combo, class: "form-group" do |f| %>
   <%= render "shared/error_messages", object: f.object %>
-  <%= f.label t ".name" %>
-  <%= f.text_field :name, class: "form-control mb-1" %>
+  <div class="row">
+    <div class="col">
+      <%= f.label t(".name") %>
+      <%= f.text_field :name, class: "form-control mb-1" %>
+    </div>
+    <div class="col">
+      <%= f.label t(".price") %>
+      <%= f.text_field :price, class: "form-control mb-1" %>
+    </div>
+  </div>
 
-  <%= f.label t ".price" %>
-  <%= f.number_field :price, class: "form-control mb-1" %>
-
-  <%= f.label t ".status" %><br/>
-  <%= f.radio_button :status, :allowed, checked: "checked" %> <%= t ".allowed" %><br/>
-  <%= f.radio_button :status, :unallowed %> <%= t ".unallowed" %><br/>
-
-  <%= f.submit t(".submit"), class: "btn btn-primary mt-1" %>
+  <div class="row">
+    <div class="col">    
+      <%= f.label t ".status" %>
+      <%= f.select :status, Product.statuses.keys.to_a, {include_blank: t(".select_status")}, {class: "form-control"} %><br>
+    </div>
+  </div>
+  <%= f.submit t(".submit"), class: "btn btn-primary" %>
+  <%= link_to t(".list_combo"), combos_path, class: "btn btn-success btn-sm" %>
+  <%= button_tag t(".reset"), type: :reset, class: "btn btn-warning btn-sm mr-2" %>
+  </div>
 <% end %>

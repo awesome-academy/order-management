@@ -15,6 +15,7 @@ class BillDetail < ApplicationRecord
   delegate :id, to: :bill, prefix: true
   delegate :status, to: :bill, prefix: true
 
-  scope :where_bill, -> bill_id{where(bill_id: bill_id)} 
+  scope :where_bill, -> bill_id{where(bill_id: bill_id)}
   scope :status_bill, -> status_bill{where(bill_status: status_bill)}
+  scope :order_by_type, -> {order(type_detail: :asc)}
 end

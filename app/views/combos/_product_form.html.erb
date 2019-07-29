@@ -1,9 +1,15 @@
-<h3><%= t ".add_to_product" %></h3>
-<% session[:forwarding_url] = request.original_url if request.get? %>
-<%= form_for @combo_product do |f| %>
+<%= form_for @combo_product, remote: true do |f| %>
   <%= f.hidden_field :combo_id, value: @combo.id, class: "form-control mb-1" %>
-  <%= f.label t ".product" %>
-  <%= f.select :product_id, get_product(@products), {include_blank: t(".select_product")}, {class: "form-control"} %><br>
+  <div class="row">
+    <div class="col">
+      <%= f.label t ".product" %>
+      <%= f.select :product_id, get_product(@products), {include_blank: t(".select_product")}, {class: "form-control"} %><br>
+    </div>
+    <div class="col">
+      <%= f.label t ".amount_product" %>
+      <%= f.number_field :count, class: "form-control mb-1" %>
+    </div>
+  </div>
 
   <%= f.submit t(".submit"), class: "btn btn-primary mt-1" %>
 <% end %>
