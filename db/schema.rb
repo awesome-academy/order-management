@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_040147) do
+ActiveRecord::Schema.define(version: 2019_07_28_114427) do
 
   create_table "bill_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "type_detail"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_07_23_040147) do
     t.bigint "bill_id"
     t.bigint "product_id"
     t.bigint "combo_id"
+    t.integer "amount_product"
     t.index ["bill_id"], name: "index_bill_details_on_bill_id"
     t.index ["combo_id"], name: "index_bill_details_on_combo_id"
     t.index ["product_id"], name: "index_bill_details_on_product_id"
@@ -31,7 +32,6 @@ ActiveRecord::Schema.define(version: 2019_07_23_040147) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "table_id"
-    t.integer "number_customer"
     t.index ["table_id"], name: "index_bills_on_table_id"
     t.index ["user_id"], name: "index_bills_on_user_id"
   end
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_07_23_040147) do
   create_table "combo_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "combo_id"
     t.bigint "product_id"
+    t.integer "count"
     t.index ["combo_id"], name: "index_combo_products_on_combo_id"
     t.index ["product_id"], name: "index_combo_products_on_product_id"
   end

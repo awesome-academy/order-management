@@ -1,0 +1,2 @@
+$('#product-in-combo').html("<%= j render 'combo_products/combo_product', combo_product: @combo_product %>");
+$('#combo_product_product_id').append('<option value="<%= @combo_product.product_id %>"><%= @combo_product.product_name %></option>')

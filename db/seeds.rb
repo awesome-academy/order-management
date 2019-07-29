@@ -5,7 +5,7 @@ User.create!(name:  "Nguyễn Văn Bảy",
   password: "111",
   password_confirmation: "111",
   address: "Hà Nội",
-  role: 1,
+  role: 0,
   phone: "0962199791",
   created_at: Time.zone.now)
 
@@ -20,7 +20,7 @@ User.create!(name:  "Nguyễn Văn Bảy",
   password: "111",
   password_confirmation: "111",
   address: address,
-  role: 0,
+  role: 1,
   phone: phone,
   created_at: Time.zone.now)
 end

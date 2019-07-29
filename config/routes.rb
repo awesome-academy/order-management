@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :users
     resources :products
     resources :combo_products
-    resources :combos
+    resources :combos, except: [:change_combo_status]
     resources :tables
     resources :bills
     resources :bill_details
@@ -16,5 +16,6 @@ Rails.application.routes.draw do
       resources :bill_details
     end
     get "/payment", to: "bills#payment"
+    get "/list_bill", to: "bills#list_bill"
   end
 end

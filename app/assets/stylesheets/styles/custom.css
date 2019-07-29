@@ -1,0 +1,21 @@
+.image-product {
+  width: 10rem !important;
+  height: 10rem !important;
+}
+
+.edit-product {
+  width: 80%;
+  justify-content: center;
+}
+
+.width-80 {
+  width: 80% !important;
+}
+
+.table-information:hover {
+  cursor: pointer; 
+}
+
+.w-70 {
+  width: 70px !important;
+}

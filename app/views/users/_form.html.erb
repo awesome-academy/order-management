@@ -1,22 +1,40 @@
-<%= form_for @user do |f| %>
+<%= form_for @user, class: "form-group" do |f| %>
   <%= render "shared/error_messages", object: f.object %>
-  <%= f.label t(".name") %>
-  <%= f.text_field :name, class: "form-control mb-1" %>
+  <div class="row">
+    <div class="col">
+      <%= f.label t(".name") %>
+      <%= f.text_field :name, class: "form-control mb-1" %>
+    </div>
+    <div class="col">
+      <%= f.label t(".address") %>
+      <%= f.text_field :address, class: "form-control mb-1" %>
+    </div>
+  </div>
 
-  <%= f.label t(".address") %>
-  <%= f.text_field :address, class: "form-control mb-1" %>
+  <div class="row">
+    <div class="col">
+      <%= f.label t(".phone") %>
+      <%= f.text_field :phone, class: "form-control mb-1" %>
+    </div>
+    <div class="col">
+      <%= f.label t(".username") %>
+      <%= f.text_field :username, class: "form-control mb-1" %>
+    </div>
+  </div>
 
-  <%= f.label t(".phone") %>
-  <%= f.text_field :phone, class: "form-control mb-1" %>
-
-  <%= f.label t(".username") %>
-  <%= f.text_field :username, class: "form-control mb-1" %>
-
-  <%= f.label t(".password") %>
-  <%= f.password_field :password, class: "form-control mb-1" %>
-
-  <%= f.label t(".password_confirmation"), t(".password_confirmation") %>
-  <%= f.password_field :password_confirmation, class: "form-control mb-1" %>
+  <div class="row">
+    <div class="col">
+      <%= f.label t(".password") %>
+      <%= f.password_field :password, class: "form-control mb-1" %>
+    </div>
+    <div class="col">
+      <%= f.label t(".password_confirmation"), t(".password_confirmation") %>
+      <%= f.password_field :password_confirmation, class: "form-control mb-1" %>
+    </div>
+  </div>
 
   <%= f.submit t(".submit"), class: "btn btn-primary" %>
+  <%= link_to t(".list_user"), users_path, class: "btn btn-success btn-sm" %>
+  <%= button_tag t(".reset"), type: :reset, class: "btn btn-warning btn-sm mr-2" %>
+  </div>
 <% end %>

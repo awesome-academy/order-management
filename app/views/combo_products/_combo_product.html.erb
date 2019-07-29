@@ -1,0 +1,16 @@
+<% combo_product.combo.combo_products.each_with_index do |cp, key| %>
+  <tr id="sp-<%= cp.id %>">
+    <td><%= get_index key %></td>
+    <td><%= link_to cp.product_name, cp.product %></td>
+    <td><span id="count-sp-<%= cp.id %>" ><%= cp.count %></span></td>
+    <td>
+    <%= link_to combo_product_path(cp),
+    {"data-toggle": "modal", "data-target": "#edit-product", remote: true, class: "btn btn-info"} do %>
+      <i class="fa fa-edit"></i>
+    <% end %>
+      <%= link_to cp, method: :delete, remote: true, class: "btn btn-danger btn-sm", data: { confirm: t(".sure") } do %>
+        <i class="fa fa-trash-alt"></i>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

@@ -1,59 +1,91 @@
 <% provide :title, @combo.name %>
+
 <div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+    <div class="card card-small blog-comments">
+      <div class="card-header border-bottom">
+        <h6 class="m-0"><%= t ".combo" %></h6>
+      </div>
+      <div class="card-body p-0">
+        <div class="blog-comments__item d-flex p-3">
+          <div class="blog-comments__content">
+            <div class="blog-comments__meta text-muted">
+              <%= link_to @combo.name, class: "text-secondary" %>
+            </div>
+            <p class="m-0 my-1 mb-2 text-muted"><%= @combo.price %> <%= Settings.unit %></p>
+            <div class="blog-comments__actions">
+              <div class="btn-group btn-group-sm">
+                <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                  <input type="checkbox" id="customToggle2" name="customToggle2" class="custom-control-input" checked="checked">
+                  <label class="custom-control-label" for="customToggle2"><%= t ".checkred" %></label>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="add-to-combo">
+              <h5><%= t ".add_product_to_combo" %></h5>
+              <%= render "product_form" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <aside class="col-md-12">
-    <%= link_to t(".edit"), edit_combo_path(@combo) %> | 
-    <%= link_to t(".list_combo"), combos_path %>
-  </aside>
-
-  <aside class="col-md-12 show-product">
-    <section class="product_info">
-      <h4 class="text-center"><%= t ".info" %></h4><hr>
-      <table class="table user-list">
-        <thead>
-          <tr>
-            <th><span><%= t ".name" %></span></th>
-            <th><span><%= @combo.name %></span></th>
-          </tr>
-          <tr>
-            <th><span><%= t ".price" %></span></th>
-            <th><span><%= @combo.price %> <%= Settings.unit %></span></th>
-          </tr>
-          <tr>
-            <th><span><%= t ".status" %></span></th>
-            <th><%= @combo.allowed? ? t(".allowed") : t(".unallowed")  %></span></th>
-          </tr>
-        </thead>
-      </table>
-    </section>
-
-    <section class="combo_info">
-      <h4 class="text-center"><%= t ".product" %></h4><hr>
-      <table class="table user-list">
-        <thead>
-          <tr>
-            <th><span><%= t ".name" %></span></th>
-            <th><span><%= t ".price" %></span></th>
-            <th><span><%= t ".image" %></span></th>
-            <th><span><%= t ".action" %></span></th>
-          </tr>
-        </thead>
-          <tbody>
-            <% @combo.products.each do |product| %>
+  <div class="col-lg-8 col-md-8 col-sm-12 mb-4">
+    <div class="card card-small">
+      <div class="card-header border-bottom">
+        <h6 class="m-0"><%= t"list_product_in_combo" %></h6>
+      </div>
+      <div class="card-body p-0">
+        <ul class="list-group list-group-small list-group-flush">
+          <table class="table mb-0">
+            <thead class="bg-light">
               <tr>
-                <th><span><%= product.name %></span></th>
-                <th><span><%= product.price %> <%= Settings.unit %></span></th>
-                <th><%= image_tag(product.image.url, class: "img-responsive") if product.image? %></th>
-                <th><%= link_to t(".delete"), find_combo_product(@combo.id, product.id), method: :delete,
-  data: { confirm: t(".sure") } %></th>
+                <th scope="col" class="border-0"><%= t ".stt" %></th>
+                <th scope="col" class="border-0"><%= t ".name" %></th>
+                <th scope="col" class="border-0"><%= t ".count" %></th>
+                <th scope="col" class="border-0"><%= t ".action" %></th>
               </tr>
-            <% end %>
-          </tbody>
-      </table>
-    </section>
-  </aside>
+            </thead>
+            <tbody id="product-in-combo">
+              <% @combo.products.each_with_index do |product, key| %>
+              <% combo_product = find_combo_product(@combo.id, product.id) %>
+                <tr id="sp-<%= combo_product.id %>">
+                  <td><%= get_index key %></td>
+                  <td><%= link_to product.name, product %></td>
+                  <td><span id="count-sp-<%= combo_product.id %>" ><%= combo_product.count %></span></td>
+                  <td>
+                  <%= link_to combo_product_path(combo_product),
+  {"data-toggle": "modal", "data-target": "#edit-product", remote: true, class: "btn btn-info"} do %>
+                    <i class="fa fa-edit"></i>
+                  <% end %>
+                    <%= link_to combo_product, method: :delete, remote: true, class: "btn btn-danger btn-sm", data: { confirm: t(".sure") } do %>
+                      <i class="fa fa-trash-alt"></i>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <aside class="col-md-12 add-combo">
-    <%= render "product_form" %>
-  </aside>
+<div class="modal fade" id="edit-product">
+  <div class="modal-dialog modal-dialog-centered width-80">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t ".close" %></button>
+      </div>
+    </div>
+  </div>
 </div>

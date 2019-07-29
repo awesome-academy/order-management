@@ -1,10 +1,21 @@
 <% provide :title, @table.number %>
+
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @table.number %>
-      </h1>
-    </section>
-  </aside>
+  <div class="col-lg-4">
+    <div class="card card-small mb-4 pt-3">
+      <div class="card-header border-bottom text-center">
+        <h4 class="mb-0"><%= @table.number %></h4>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item p-4">
+          <strong class="text-muted d-block mb-2"><%= t ".number" %></strong>
+          <span><%= @table.number %></span>
+        </li>
+        <li class="list-group-item p-4">
+          <strong class="text-muted d-block mb-2"><%= t ".description" %></strong>
+          <span><%= raw @table.description %></span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

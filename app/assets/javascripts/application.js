@@ -1,6 +1,9 @@
 //= require jquery
+//= require quill.global
+//= require Chart.min
 //= require bootstrap
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require ckeditor-jquery
 //= require_tree .

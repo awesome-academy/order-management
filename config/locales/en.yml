@@ -1,4 +1,11 @@
 en:
+  activerecord:
+    attributes:
+      user:
+        role:
+          chef: "Chef"
+          waiter: "Waiter"
+          manager: "Manager"
   layouts:
     application:
       title: "Ruby on Rails project 1"
@@ -20,6 +27,7 @@ en:
       table: "Table"
       bill: "Order product"
       account: "My Account"
+      list_bill: "Bills"
     footer:
       make_by: "Create"
   home_pages:
@@ -121,6 +129,7 @@ en:
       submit: "Submit"
       select_combo: "Select combo"
       add_to_combo: "Add to combo"
+      amount_product: "Amount product"
     create:
       success_create: "Create success"
     update:
@@ -136,6 +145,7 @@ en:
       product: "Product"
       select_product: "Select product"
       submit: "Submit"
+      amount_product: "Amount product"
     form:
       name: "Name"
       price: "Price"
@@ -186,12 +196,18 @@ en:
     load_combo:
       not_exits: "Combo product not exist"
   combo_products:
+    edit_combo_product:
+      update_count_combo_product: "Update"
+      count: "Count"
+    new_combo_product:
+      sure: "Sure! Delete product in combo"
     index:
       all_combo_product: "List combo product"
       combo_name: "Combo name"
       product_name: "Product name"
       action: "Action"
       sure: "Sure ?"
+      amount_product: "Amount product"
     show:
       combo: "Combo"
       product: "Product"
@@ -237,6 +253,7 @@ en:
       not_exits: "Table not exists"
   bills:
     index:
+      customer: "customer"
       all_table: "All table"
       chair: "chair"
       full: "full"
@@ -288,6 +305,13 @@ en:
       customer: "Infomation customer"
       name_c: "Name:"
       name_u: "Created by:"
+    list_bill:
+      all_bill: "Bills"
+      name_c: "Name customer"
+      name_p: "Name product"
+      count: "Count"
+      type: "Type"
+      product: "products"
   bill_details:
     index:
       submit: "update"
