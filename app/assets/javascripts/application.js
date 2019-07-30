@@ -1,4 +1,5 @@
 //= require jquery
+//= require autonumeric
 //= require quill.global
 //= require Chart.min
 //= require bootstrap

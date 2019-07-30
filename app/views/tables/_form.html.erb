@@ -7,7 +7,7 @@
     </div>
     <div class="col">
       <%= f.label t(".type_table") %>
-      <%= f.select :amount_chair, Table.amount_chairs.keys.to_a, {include_blank: t(".select_type")}, {class: "form-control"} %>
+      <%= f.select :amount_chair, enum_options_for_select(Table, :amount_chair), {include_blank: t(".select_type")}, {class: "form-control"} %>
     </div>
   </div>
 

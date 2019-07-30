@@ -24,11 +24,16 @@ class ProductsController < ApplicationController
   def edit; end
 
   def update
-    if @product.update product_params
-      flash[:success] = t(".success_edit")
-      redirect_to @product
-    else
-      render :edit
+    respond_to do |format|
+      if @product.update product_params
+        flash[:success] = t(".success_edit")
+        format.html {redirect_to @product}
+        format.js
+      else
+        flash[:error] = t(".error_edit")
+        format.html {render :edit}
+        format.js
+      end
     end
   end
 

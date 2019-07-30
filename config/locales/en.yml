@@ -1,33 +1,41 @@
 en:
   activerecord:
-    attributes:
+    enums:
       user:
-        role:
+        roles:
           chef: "Chef"
           waiter: "Waiter"
           manager: "Manager"
+      table:
+        amount_chairs:
+          single_table: "Signle table"
+          double_table: "Double table"
+          four_table: "Four table"
+          eight_table: "Eight table"
+      product:
+        statuses:
+          allowed: "Allowed"
+          unallowed: "Unallowed"
+      combo:
+        statuses:
+          allowed: "Allowed"
+          unallowed: "Unallowed"
   layouts:
     application:
       title: "Ruby on Rails project 1"
-    header:
-      sample_app: "Order App"
-      language: "Languages"
+    aside:
+      product: "Product"
+      user: "User"
+      order: "Order"
+      table: "Table"
+      combo: "Combo"
+      bill: "Bill"
+    main_navbar:
+      login: "Đăng nhập"
+      language: "Language"
       lang_en: "English"
       lang_vi: "Vietnamese"
-      toogleNavigation: "Toggle navigation"
-      order_app: "Order app"
-      home: "Home"
-      login: "Login"
-      profile: "Profile"
-      setting: "Update password"
-      user: "Account"
-      product: "Product"
-      combo: "Combo"
-      combo_product: "Combo product"
-      table: "Table"
-      bill: "Order product"
-      account: "My Account"
-      list_bill: "Bills"
+      logout: "Logout"
     footer:
       make_by: "Create"
   home_pages:
@@ -40,6 +48,9 @@ en:
     edit:
       edit_user: "Edit User"
     form:
+      stt: "STT"
+      list_user: "List user"
+      reset: "Reset"
       name: "Name"
       address: "Address"
       phone: "Phone"
@@ -50,6 +61,8 @@ en:
     show:
       not_exits: "User not exits"
     index:
+      stt: "STT"
+      new_user: "Add user"
       all_user: "All account"
       add_user: "Add user"
       name: "Name"
@@ -60,8 +73,9 @@ en:
       updated_at: "Updated at"
       action: "Action"
     user:
+      update_at: "Update at"
       delete: "delete"
-      sure: "You sure?"
+      sure: "Delete! sure?"
       show: "show"
       edit: "edit"
     create:
@@ -74,6 +88,9 @@ en:
     load_user:
       not_exits: "User not exists"
   shared:
+    alert:
+      success: "Update success"
+      danger: "Update fail"
     error_messages:
       contant: " The form contains"
       error: "error"
@@ -89,6 +106,10 @@ en:
       success: "Wellcome to order app"
   products:
     index:
+      price: "Price"
+      new_product: "Add product"
+      name: "Name product"
+      stt: "STT"
       all_product: "All Product"
       add_product: "Add product"
       status: "Status"
@@ -97,10 +118,12 @@ en:
     product:
       allowed: "Allowed"
       unallowed: "Unallowed"
-      sure: "Sure"
+      sure: "Delete! sure?"
     edit:
       edit_product: "Edit product"
     form:
+      list_product: "List product"
+      reset: "Reset"
       image: "Image"
       name: "Name"
       price: "Price"
@@ -109,19 +132,21 @@ en:
     new:
       create_product: "Create Product"
     show:
+      stt: "STT"
       image: "Image"
       name: "Name"
       price: "Price"
       status: "Status"
-      info: "Infomation product"
+      infomation_product: "Infomation product"
       allowed: "Allowed"
       unallowed: "Unallowed"
       combo: "Combo"
       list_product: "List product"
-      sure: "Sure?"
+      sure: "Delete! sure?"
       delete: "delete"
       action: "Action"
       edit: "Edit"
+      list_combo: "List combo"
     combo_form:
       add_combo: "Add to combo"
       product: "Product"
@@ -147,6 +172,8 @@ en:
       submit: "Submit"
       amount_product: "Amount product"
     form:
+      list_combo: "List combo"
+      reset: "Reset"
       name: "Name"
       price: "Price"
       status: "Status"
@@ -155,16 +182,19 @@ en:
       submit: "Submit"
       combo: "Combo"
     combo:
+      status: "Status"
       allowed: "Allowed"
       unallowed: "Unallowed"
       delete: "delete"
-      sure: "Sure"
+      sure: "Delete! sure?"
       show: "show"
       edit: "edit"
     edit:
       edit_combo: "Edit combo"
     index:
-      all_combo: "All combo"
+      stt: "STT"
+      new_combo: "New combo"
+      combos: "All combo"
       add_combo: "Add combo"
       name: "Name"
       price: "Price"
@@ -185,7 +215,13 @@ en:
       image: "Image"
       action: "Action"
       delete: "delete"
-      sure: "Sure ?"
+      sure: "Delete! sure?"
+      combo: "Combo"
+      close: "Close"
+      count: "Count"
+      stt: "STT"
+      list_product_in_combo: "List product in combo"
+      add_product_to_combo: "Add product to combo"
     create:
       success_create: "Create success"
     update:
@@ -195,18 +231,23 @@ en:
       delete_err: "Destroy fail"
     load_combo:
       not_exits: "Combo product not exist"
-  combo_products:
+    combo_products:
+      edit_combo_product:
+        success: "Update success!"
+        update_count_combo_product: "Update number product in combo success"
+      combo_product:
+        sure: "Delete! sure?"
     edit_combo_product:
       update_count_combo_product: "Update"
       count: "Count"
     new_combo_product:
-      sure: "Sure! Delete product in combo"
+      sure: "Delete! sure?"
     index:
       all_combo_product: "List combo product"
       combo_name: "Combo name"
       product_name: "Product name"
       action: "Action"
-      sure: "Sure ?"
+      sure: "Delete! sure?"
       amount_product: "Amount product"
     show:
       combo: "Combo"
@@ -221,18 +262,23 @@ en:
       not_exits: "Combo product not exists"
   tables:
     index:
+      new_table: "Create table"
+      stt: "STT"
       all_table: "List table"
       add_table: "Add table"
       number: "Number table"
       description: "Description"
       amount_chair: "Amount chair"
       action: "Action"
+      type: "Table type"
     table:
       delete: "Delete"
-      sure: "Sure ?"
+      sure: "Delete! sure?"
       show: "Show"
       edit: "Edit"
     form:
+      list_table: "List table"
+      reset: "Reset"
       number: "Table number"
       description: "Description"
       type_table: "Type table"
@@ -240,6 +286,7 @@ en:
       select_type: "Select table type"
     new:
       create_table: "Create table"
+      new_table: "New table"
     edit:
       edit_table: "Edit table"
     create:
@@ -251,8 +298,14 @@ en:
       delete_err: "Delete fail"
     load_table:
       not_exits: "Table not exists"
+    show:
+      description: "Description"
+      number: "Number"
   bills:
     index:
+      find_by_name: "Find by name"
+      find_by_type: "Find by type"
+      find_by_status: "Find by status"
       customer: "customer"
       all_table: "All table"
       chair: "chair"
@@ -264,6 +317,7 @@ en:
       double_chair: "Double chairs"
       four_chair: "Four chairs"
       eight_chair: "Eight chairs"
+      close: "Close"
     show:
       table_info: "Customer information"
       not_exits: "Table not esixts"
@@ -275,7 +329,7 @@ en:
       double_chair: "Double chairs"
       four_chair: "Four chairs"
       eight_chair: "Eight chairs"
-      sure: "Sure"
+      sure: "Delete! sure?"
     form:
       name: "Customer name"
       submit: "Submit"
@@ -296,6 +350,9 @@ en:
       not_exits: "Bill not exits"
     payment:
       payment: "Payment"
+      sure: "Delete! sure?"
+      cancel: "Cancle bill"
+      stt: "STT"
       product_title: "Infomation product"
       name: "Name product"
       type: "Type"
@@ -313,7 +370,14 @@ en:
       type: "Type"
       product: "products"
   bill_details:
+    combo:
+      combo: "combo"
     index:
+      product_used: "Product used"
+      combo_used: "Combo used"
+      stt: "STT"
+      name_product: "Name product"
+      count: "Count"
       submit: "update"
       name: "Name product"
       type: "Type"
@@ -323,19 +387,22 @@ en:
       combo: "Combo"
       product: "Product"
       delete: "delete"
-      sure: "Sure delete"
+      sure: "Delete! sure?"
       payment: "Payment"
-      cancle_order: "Cancle order"
+      cancle: "Cancle order"
       chair: "chair"
       full: "Full"
       not_exits: "Bill not exits"
     product:
+      product: "product"
       image: "Image"
       name: "Name product"
       price: "Price"
       action: "Action"
       add: "Add"
     combo:
+      stt: "STT"
+      combo: "Combo"
       name: "Name Combo"
       price: "Price"
       action: "Action"

@@ -55,6 +55,8 @@
         <%= link_to "#", locale: "vi", class: "dropdown-item" do %>
           <i class="material-icons">vertical_split</i><%= t ".lang_vi" %></a>
         <% end %>
+        <%= link_to_unless_current "", { locale: "en"}, {class: 'english language'} %>
+        <%= link_to_unless_current "", { locale: "vi"}, {class: 'english language'} %>
       </div>
     </li>
     <% if logged_in? %>

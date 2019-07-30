@@ -15,14 +15,17 @@
             <div class="blog-comments__meta text-muted">
               <%= link_to @product.name, class: "text-secondary" %>
             </div>
-            <p class="m-0 my-1 mb-2 text-muted"><%= @product.price %> <%= Settings.unit %></p>
-            <div class="blog-comments__actions">
-              <div class="btn-group btn-group-sm">
-                <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                  <input type="checkbox" id="customToggle2" name="customToggle2" class="custom-control-input" checked="checked">
-                  <label class="custom-control-label" for="customToggle2"><%= t ".checked" %></label>
+            <p class="m-0 my-1 mb-2 text-muted"><%= number_to_vnd @product.price %></p>
+            <div class="btn-group btn-group-sm" id="<%= "form-combo-#{@product.id}" %>">
+              <%= form_for @product, remote: true, authenticity_token: true do |f| %>
+                <div class="row">
+                  <div class="col">
+                    <%= f.select :status, enum_options_for_select(Product, :status), {include_blank: false},
+                    onChange: "javascript: this.form.submit_form.click();", class: "form-control" %>
+                  </div>
                 </div>
-              </div>
+                <%= f.submit name: :submit_form, remote: true, class: "d-none" %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -49,7 +52,7 @@
               <tr>
                 <td><%= get_index key %></td>
                 <td><%= link_to combo.name, combo %></td>
-                <td><%= combo.price %></td>
+                <td><%= number_to_vnd combo.price %></td>
               </tr>
             <% end %>
           </tbody>

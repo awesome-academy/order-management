@@ -4,7 +4,9 @@
   <div class="col">
     <div class="card card-small mb-4">
       <div class="card-header border-bottom">
-        <%= link_to t(".new_table"), new_table_path %>
+        <%= link_to new_table_path, class: "btn btn-success btm-sm" do %>
+          <i class="fa fa-plus-circle"></i>
+        <% end %>
       </div>
       <div class="card-body p-0 pb-3 text-center">
         <table class="table mb-0">
@@ -12,8 +14,7 @@
             <tr>
               <th scope="col" class="border-0"><%= t ".stt" %></th>
               <th scope="col" class="border-0"><%= t ".number" %></th>
-              <th scope="col" class="border-0"><%= t ".description" %></th>
-              <th scope="col" class="border-0"><%= t ".amount_chair" %></th>
+              <th scope="col" class="border-0"><%= t ".type" %></th>
               <th scope="col" class="border-0"><%= t ".action" %></th>
             </tr>
           </thead>

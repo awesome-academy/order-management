@@ -7,14 +7,22 @@
     </div>
     <div class="col">
       <%= f.label t(".price") %>
-      <%= f.text_field :price, class: "form-control mb-1" %>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><%= Settings.unit %></span>
+        </div>
+        <%= f.text_field :price, class: "form-control",data: {autonumeric: true, aSign: Settings.unit, mDec: 0} %>
+        <div class="input-group-append">
+          <span class="input-group-text">.00</span>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col">    
       <%= f.label t ".status" %>
-      <%= f.select :status, Product.statuses.keys.to_a, {include_blank: t(".select_status")}, {class: "form-control"} %><br>
+      <%= f.select :status, enum_options_for_select(Combo, :status), {include_blank: t(".select_status")}, {class: "form-control"} %><br>
     </div>
   </div>
   <%= f.submit t(".submit"), class: "btn btn-primary" %>

@@ -15,4 +15,8 @@ module ApplicationHelper
   def get_index key
     key + Settings.start
   end
+
+  def number_to_vnd number
+    "#{number_to_currency(number,unit: "",separator: ",",delimiter: ".")} #{Settings.unit}"
+  end
 end

@@ -17,7 +17,7 @@
           <% @products.each do |product| %>
             <tr>
               <td><%= link_to product.name, product %></td>
-              <td><span><%= product.price %></span></td>
+              <td><span><%= number_to_vnd product.price %></span></td>
               <td>
                 <%= form_for @bill_detail do |f| %>
                   <%= f.hidden_field :type_detail, value: :product %>

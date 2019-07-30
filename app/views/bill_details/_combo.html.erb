@@ -19,7 +19,7 @@
             <tr>
               <td><%= get_index_page key %></td>
               <td><%= link_to combo.name, combo %></td>
-              <td><span><%= combo.price %></span></td>
+              <td><span><%= number_to_vnd combo.price %></span></td>
               <td>
                 <%= form_for @bill_detail do |f| %>
                   <%= f.hidden_field :type_detail, value: :combo %>

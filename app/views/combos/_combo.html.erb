@@ -1,17 +1,17 @@
 <tr>
   <td><%= get_index_page combo_counter %></td>
   <td><%= link_to combo.name, combo %></td>
-  <td><span><%= combo.price %></span></td>
+  <td><span><%= number_to_vnd combo.price %></span></td>
   <td>
     <div class="btn-group btn-group-sm" id="<%= "form-combo-#{combo.id}" %>">
       <%= form_for combo, remote: true, authenticity_token: true do |f| %>
-          <%= f.hidden_field :id, value: combo.id %>
-        <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-          <%= f.check_box :status, {class: "custom-control-input", id: "combo-#{combo.id}",checked: combo.allowed?,
-  onchange: "$('#submit_combo_#{combo.id}').click();", include_hidden: false}, combo.status %>
-          <label class="custom-control-label" for="<%= "combo-#{combo.id}" %>"><%= t ".checked" %></label>
+        <div class="row">
+          <div class="col">
+            <%= f.select :status, enum_options_for_select(Combo, :status), {include_blank: false},
+            onChange: "javascript: this.form.submit_form.click();", class: "form-control" %>
+          </div>
         </div>
-        <%= f.submit id: "submit_combo_#{combo.id}", class: "d-none" %>
+        <%= f.submit name: :submit_form, remote: true, class: "d-none" %>
       <% end %>
     </div>
   </td>

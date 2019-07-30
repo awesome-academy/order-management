@@ -12,14 +12,17 @@
             <div class="blog-comments__meta text-muted">
               <%= link_to @combo.name, class: "text-secondary" %>
             </div>
-            <p class="m-0 my-1 mb-2 text-muted"><%= @combo.price %> <%= Settings.unit %></p>
-            <div class="blog-comments__actions">
-              <div class="btn-group btn-group-sm">
-                <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                  <input type="checkbox" id="customToggle2" name="customToggle2" class="custom-control-input" checked="checked">
-                  <label class="custom-control-label" for="customToggle2"><%= t ".checkred" %></label>
+            <p class="m-0 my-1 mb-2 text-muted"><%= number_to_vnd @combo.price %> <%= Settings.unit %></p>
+            <div class="btn-group btn-group-sm" id="<%= "form-combo-#{@combo.id}" %>">
+              <%= form_for @combo, remote: true, authenticity_token: true do |f| %>
+                <div class="row">
+                  <div class="col">
+                    <%= f.select :status, enum_options_for_select(Combo, :status), {include_blank: false},
+                    onChange: "javascript: this.form.submit_form.click();", class: "form-control" %>
+                  </div>
                 </div>
-              </div>
+                <%= f.submit name: :submit_form, remote: true, class: "d-none" %>
+              <% end %>
             </div>
             <div class="dropdown-divider"></div>
             <div class="add-to-combo">
@@ -35,7 +38,7 @@
   <div class="col-lg-8 col-md-8 col-sm-12 mb-4">
     <div class="card card-small">
       <div class="card-header border-bottom">
-        <h6 class="m-0"><%= t"list_product_in_combo" %></h6>
+        <h6 class="m-0"><%= t".list_product_in_combo" %></h6>
       </div>
       <div class="card-body p-0">
         <ul class="list-group list-group-small list-group-flush">

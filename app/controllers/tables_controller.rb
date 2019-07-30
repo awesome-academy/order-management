@@ -24,11 +24,16 @@ class TablesController < ApplicationController
   def edit; end
 
   def update
-    if @table.update table_params
-      flash[:success] = t(".success_edit")
-      redirect_to @table
-    else
-      render :edit
+    respond_to do |format|
+      if @table.update table_params
+        flash[:success] = t(".success_edit")
+        format.html {redirect_to @table}
+        format.js
+      else
+        flash[:error] = t(".error_edit")
+        format.html {render :edit}
+        format.js
+      end
     end
   end
 
