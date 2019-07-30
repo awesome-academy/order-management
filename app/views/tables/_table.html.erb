@@ -1,8 +1,19 @@
 <tr>
   <td><span><%= get_index_page table_counter %></span></td>
   <td><span><%= table.number %></span></td>
-  <td><span><%= raw table.description %></span></td>
-  <td><span><%= table.amount_chair %></span></td>
+  <td>
+    <div class="btn-group btn-group-sm" id="<%= "form-combo-#{table.id}" %>">
+      <%= form_for table, remote: true, authenticity_token: true do |f| %>
+        <div class="row">
+          <div class="col">
+            <%= f.select :amount_chair, enum_options_for_select(Table, :amount_chairs), {include_blank: false},
+            onChange: "javascript: this.form.submit_form.click();", class: "form-control" %>
+          </div>
+        </div>
+        <%= f.submit name: :submit_form, remote: true, class: "d-none" %>
+      <% end %>
+    </div>
+  </td>
   <td>
     <%= link_to table, class: "btn btn-info btn-sm" do %>
       <i class="fa fa-eye"></i>

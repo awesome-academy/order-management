@@ -36,16 +36,16 @@
             <% @bill.bill_details.each_with_index do |bill_detail, key| %>
               <tr>
                 <td><span><%= get_index key %></span></td>
-                <td><span><%= bill_detail.product_name %></span></td>
-                <td><span><%= bill_detail.price %> <%= Settings.unit %></span></td>
+                <td><span><%= bill_detail.product? ? bill_detail.product_name : bill_detail.combo_name %></span></td>
+                <td><span><%= number_to_vnd bill_detail.price %></span></td>
                 <td><span><%= bill_detail.count %></span></td>
-                <td><span><%= get_price bill_detail %> <%= Settings.unit %></span></th>
+                <td><span><%= number_to_vnd get_price bill_detail %></span></th>
               </tr>
             <% end %>
             <tr>
               <td colspan="3" ><span><%= t ".sum_price" %>:</span></td>
               <td><span><%= sum_prduct @bill %></span></td>
-              <td><span><%= sum_price @bill %> <%= Settings.unit %></span></td>
+              <td><span><%= number_to_vnd sum_price @bill %></span></td>
             </tr>
           </tbody>
         </table>

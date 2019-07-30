@@ -2,6 +2,7 @@ class BillsController < ApplicationController
   before_action :load_bill, only: %i(destroy update payment)
 
   def index
+    @table = Table.new
     @tables = Table.includes(:bills).page(params[:page]).per Settings.num_table_order
   end
 

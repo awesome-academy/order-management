@@ -15,7 +15,7 @@
   <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
     <div class="card card-small h-100">
       <div class="card-header border-bottom">
-        <h6 class="m-0"><%= t "product_used" %></h6>
+        <h6 class="m-0"><%= t ".product_used" %></h6>
       </div>
       <div class="card-body d-flex py-0">
         <table class="table mb-0">
@@ -39,11 +39,11 @@
                   <td class="w-70"><span>
                     <% if current_user.waiter? %>
                       <%= f.text_field :count, value: bill_detail.count, class: "form-control" %></span>
-                    <% elsif current_user.chef? %>
+                    <% else %>
                       <%= bill_detail.count %>
                     <% end %>
                   </td>
-                  <td><span><%= bill_detail.price %> <%= Settings.unit %></span></td>
+                  <td><span><%= number_to_vnd bill_detail.price %></span></td>
                   <% if current_user.waiter? %>
                     <td>
                       <%= link_to t(".delete"), bill_detail, method: :delete,
@@ -62,7 +62,7 @@
   <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
     <div class="card card-small h-100">
       <div class="card-header border-bottom">
-        <h6 class="m-0"><%= t "combo_used" %></h6>
+        <h6 class="m-0"><%= t ".combo_used" %></h6>
       </div>
       <div class="card-body d-flex py-0">
         <table class="table mb-0">
@@ -86,11 +86,11 @@
                   <td class="w-70"><span>
                     <% if current_user.waiter? %>
                       <%= f.text_field :count, value: bill_detail.count, class: "form-control" %></span>
-                    <% elsif current_user.chef? %>
+                    <% else %>
                       <%= bill_detail.count %>
                     <% end %>
                   </td>
-                  <td><span><%= bill_detail.price %> <%= Settings.unit %></span></td>
+                  <td><span><%= number_to_vnd bill_detail.price %></span></td>
                   <% if current_user.waiter? %>
                     <td>
                     

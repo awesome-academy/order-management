@@ -1,6 +1,31 @@
 <% provide :title, t(".all_table") %>
 
 <div class="row">
+  <div class="col">
+    <div class="card card-small mb-4">
+      <div class="card-body p-0 m-3 text-left">
+        <div class="row">
+          <div class="col">
+            <%= label_tag t(".find_by_name") %>
+            <%= text_field_tag :name, "", class: "form-control", placeholder: "#{t ".find_by_name"}" %>
+          </div>
+
+          <div class="col">
+            <%= label_tag t(".find_by_type") %>
+            <%= select_tag :amount_chair, options_for_select(enum_options_for_select(Table, :amount_chair)), class: "form-control"%>
+          </div>
+
+          <div class="col">
+            <%= label_tag t(".find_by_status") %>
+            <%= select_tag :amount_chair, options_for_select(Settings.statusTable), class: "form-control"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
   <% @tables.each do |table| %>
     <% bill = get_bill table %>
     <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
@@ -17,7 +42,7 @@
               </div>
               <div class="stats-small__data">
                 <span class="stats-small__percentage stats-small__percentage--increase">
-                  <%= table.amount_chair %>
+                  <%= enum_l table, :amount_chair %>
                 </span>
               </div>
             <% end %>

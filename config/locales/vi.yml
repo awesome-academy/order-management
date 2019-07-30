@@ -1,33 +1,41 @@
 vi:
   activerecord:
-    attributes:
+    enums:
       user:
-        role:
+        roles:
           chef: "Đầu bếp"
           waiter: "Phục vụ"
           manager: "Quản lý"
+      table:
+        amount_chairs:
+          single_table: "Bàn đơn"
+          double_table: "Bàn đôi"
+          four_table: "Bàn bốn"
+          eight_table: "Bàn tám"
+      product:
+        statuses:
+          allowed: "Đang cung cấp"
+          unallowed: "Ngừng cung cấp"
+      combo:
+        statuses:
+          allowed: "Đang cung cấp"
+          unallowed: "Ngừng cung cấp"
   layouts:
     application:
       title: "Ruby on Rails dự án 1"
-    header:
-      sample_app: "Ứng dụng gọi món"
+    aside:
+      product: "Sản phẩm"
+      user: "Nhân viên"
+      order: "Gọi món"
+      table: "Bàn"
+      combo: "Gói"
+      bill: "Hóa đơn"
+    main_navbar:
+      login: "Đăng nhập"
       language: "Ngôn ngữ"
       lang_en: "Tiếng anh"
       lang_vi: "Tiếng việt"
-      toogleNavigation: "Toggle navigation"
-      order_app: "Phần mềm gọi món"
-      home: "Trang chủ"
-      login: "Đăng nhập"
-      profile: "Thông tin cá nhân"
-      setting: "Cập nhật mật khẩu"
-      user: "Tài khoản"
-      product: "Sản phẩm"
-      combo: "Gói"
-      combo_product: "Gói sản phẩm"
-      table: "Bàn"
-      bill: "Đặt món"
-      account: "Tài khoản cá nhân"
-      list_bill: "Đơn hàng"
+      logout: "Đăng xuất"
     footer:
       make_by: "Tạo bởi"
   home_pages:
@@ -40,6 +48,9 @@ vi:
     edit:
       edit_user: "Cập nhật nhân viên"
     form:
+      stt: "STT"
+      list_user: "Danh sách nhân viên"
+      reset: "Đặt lại"
       name: "Tên"
       address: "Địa chỉ"
       phone: "Số điện thoại"
@@ -48,8 +59,10 @@ vi:
       password_confirmation: "Xác nhận mật khẩu"
       submit: "Gửi"
     show:
-      not_exits: "User not exits"
+      not_exits: "User không tồn tại"
     index:
+      stt: "STT"
+      new_user: "Thêm nhân viên"
       all_user: "Danh sách tài khoản"
       add_user: "Tạo tài khoản"
       name: "Họ tên"
@@ -60,8 +73,9 @@ vi:
       updated_at: "Ngày sửa"
       action: "Hành động"
     user:
+      update_at: "Cập nhật"
       delete: "xóa "
-      sure: "Đồng ý xóa?"
+      sure: "Xóa! Đồng ý?"
       show: "xem"
       edit: "sửa"
     create:
@@ -74,6 +88,9 @@ vi:
     load_user:
       not_exits: "Tài khoản không tồn tại"
   shared:
+    alert:
+      success: "Cập nhật thành công"
+      danger: "Cập nhật thất bại"
     error_messages:
       contant: "Nội dung biểu mẫu"
       error: "lỗi"
@@ -89,6 +106,10 @@ vi:
       success: "Chào mừng tới ứng dụng gọi món"
   products:
     index:
+      price: "Giá"
+      new_product: "Thêm sản phẩm"
+      name: "Tên sản phẩm"
+      stt: "STT"
       all_product: "Danh sách sản phẩm"
       add_product: "Thêm sản phẩm"
       status: "Trạng thái"
@@ -97,10 +118,12 @@ vi:
     product:
       allowed: "Đang cung cấp"
       unallowed: "Ngừng cung cấp"
-      sure: "Đồng ý"
+      sure: "Xóa! Đồng ý?"
     edit:
       edit_product: "Sửa sản phẩm"
     form:
+      list_product: "Danh sách sản phẩm"
+      reset: "Đặt lại"
       image: "Ảnh"
       name: "Tên sản phẩm"
       price: "Giá"
@@ -109,19 +132,21 @@ vi:
     new:
       create_product: "Tạo sản phẩm"
     show:
+      stt: "STT"
       image: "Ảnh"
       name: "Tên"
       price: "Giá"
       status: "Trạng thái"
-      info: "Thông tin sản phẩm"
+      infomation_product: "Thông tin sản phẩm"
       allowed: "Cung cấp"
       unallowed: "Ngừng cấp"
       combo: "Gói"
       list_product: "Danh sách sản phẩm"
-      sure: "Đồng ý?"
+      sure: "Xóa! Đồng ý?"
       delete: "xóa"
       action: "Hành động"
       edit: "Sửa"
+      list_combo: "Danh sách gói"
     combo_form:
       add_combo: "Thêm vào gói"
       product: "Sản phẩm"
@@ -147,6 +172,8 @@ vi:
       submit: "Gửi"
       amount_product: "Tổng sản phẩm"
     form:
+      list_combo: "Danh sách combo"
+      reset: "Đặt lại"
       name: "Tên"
       price: "Giá"
       status: "Trạng thái"
@@ -155,16 +182,19 @@ vi:
       submit: "Gửi"
       combo: "Combo"
     combo:
+      status: "Trạng thái"
       allowed: "Cung cấp"
       unallowed: "Ngừng cung cấp"
       delete: "Xóa"
-      sure: "Đồng ý"
+      sure: "Xóa! Đồng ý?"
       show: "xem"
       edit: "sửa"
     edit:
       edit_combo: "Sửa gói"
     index:
-      all_combo: "Danh sách gói"
+      stt: "STT"
+      new_combo: "Tạo gói mơi"
+      combos: "Danh sách gói"
       add_combo: "Thêm gói"
       name: "Tên"
       price: "Giá"
@@ -185,7 +215,13 @@ vi:
       image: "Ảnh"
       action: "Hành động"
       delete: "xóa"
-      sure: "Đồng ý ?"
+      sure: "Xóa! Đồng ý?"
+      combo: "Gói"
+      close: "Đóng"
+      count: "Số lượng"
+      stt: "STT"
+      list_product_in_combo: "Danh sách sản phẩm trong combo"
+      add_product_to_combo: "Thêm sản phẩm vào combo"
     create:
       success_create: "Tạo thành công"
     update:
@@ -197,16 +233,21 @@ vi:
       not_exits: "Gói không tồn tại"
   combo_products:
     edit_combo_product:
+      success: "Cập nhật thành công!"
+      update_count_combo_product: "Cập nhật số lượng sản phẩm trong gói"
+    combo_product:
+      sure: "Xóa! Đồng ý?"
+    edit_combo_product:
       update_count_combo_product: "Cập nhật"
       count: "Số lượng"
     new_combo_product:
-      sure: "Đồng ý! Xóa sản phẩm khỏi combo"
+      sure: "Xóa! Đồng ý?"
     index:
       all_combo_product: "Danh sách gói và sản phẩm"
       combo_name: "Tên gói"
       product_name: "Tên sản phẩm"
       action: "Hành động"
-      sure: "Đồng ý?"
+      sure: "Xóa! Đồng ý?"
       amount_product: "Tổng sản phẩm"
     show:
       combo: "Gói"
@@ -221,18 +262,23 @@ vi:
       not_exits: "Gói sản phẩm không tồn tại"
   tables:
     index:
+      new_table: "Tạo bàn"
+      stt: "STT"
       all_table: "Danh sách bàn"
       add_table: "Thêm bàn"
       number: "Số bàn"
       description: "Mô tả"
       amount_chair: "Tổng số ghế"
       action: "Hành động"
+      type: "Loại bàn"
     table:
       delete: "Delete"
-      sure: "Sure ?"
+      sure: "Xóa! Đồng ý?"
       show: "Show"
       edit: "Edit"
     form:
+      list_table: "Danh sách bàn"
+      reset: "Đặt lại"
       number: "Bàn số"
       description: "Mô tả"
       type_table: "Chọn loại bàn"
@@ -240,6 +286,7 @@ vi:
       select_type: "Chọn loại bàn"
     new:
       create_table: "Tạo bàn"
+      new_table: "Bàn mới"
     edit:
       edit_table: "Sửa bàn"
     create:
@@ -251,8 +298,14 @@ vi:
       delete_err: "Xóa thất bại"
     load_table:
       not_exits: "Bàn không tồn tại"
+    show:
+      description: "Mô tả"
+      number: "Bàn số"
   bills:
     index:
+      find_by_name: "Bằng tên"
+      find_by_type: "Bằng loại"
+      find_by_status: "Trạng thái bàn"
       customer: "khách hàng"
       all_table: "Toàn bộ bàn"
       chair: "ghế"
@@ -264,6 +317,7 @@ vi:
       double_chair: "Ghế đôi"
       four_chair: "Ghế bốn"
       eight_chair: "Ghế tám"
+      close: "Đóng"
     show:
       table_info: "Thông tin khách hàng"
       not_exits: "Bàn không tồn tại"
@@ -275,7 +329,7 @@ vi:
       double_chair: "Ghế đôi"
       four_chair: "Ghế bốn"
       eight_chair: "Ghế tám"
-      sure: "Đồng ý"
+      sure: "Xóa! Đồng ý?"
     form:
       name: "Tên khách hàng"
       submit: "Gửi"
@@ -296,6 +350,9 @@ vi:
       not_exits: "Đơn không tồn tại"
     payment:
       payment: "Thanh toán"
+      sure: "Xóa! Đồng ý?"
+      cancel: "Hủy đơn"
+      stt: "STT"
       product_title: "Thông tin sản phẩm"
       name: "Tên sản phẩm"
       type: "Loại"
@@ -313,7 +370,14 @@ vi:
       type: "Loại"
       product: "sản phẩm"
   bill_details:
+    combo:
+      combo: "gói"
     index:
+      product_used: "Sản phẩm đã dùng"
+      combo_used: "Gói đã dùng"
+      stt: "STT"
+      name_product: "Tên sản phẩm"
+      count: "Số lượng"
       submit: "cập nhật"
       name: "Tên sản phẩm"
       type: "Loại"
@@ -323,19 +387,22 @@ vi:
       combo: "Gói"
       product: "Sản phẩm"
       delete: "xóa"
-      sure: "Đồng ý xóa sản phẩm"
+      sure: "Xóa! Đồng ý?"
       payment: "Thanh toán"
-      cancle_order: "Hủy đơn hàng"
+      cancle: "Hủy đơn hàng"
       chair: "ghế"
       full: "Đầy"
       not_exits: "Đơn không tồn tại"
     product:
+      product: "sản phẩm"
       image: "Ảnh"
       name: "Tên sản hẩm"
       price: "Giá"
       action: "Hành động"
       add: "Thêm"
     combo:
+      stt: "STT"
+      combo: "Gói"
       name: "Tên gói"
       price: "Giá"
       action: "Hành động"
