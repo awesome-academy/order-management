@@ -12,6 +12,9 @@ en:
           double_table: "Double table"
           four_table: "Four table"
           eight_table: "Eight table"
+        statuses:
+          active: "Active"
+          unactive: "Unactive"
       product:
         statuses:
           allowed: "Allowed"

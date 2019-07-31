@@ -27,7 +27,9 @@
                   <%= f.hidden_field :count, value: Settings.count_auto %>
                   <%= f.hidden_field :bill_id, value: params[:bill_id] %>
                   <%= f.hidden_field :combo_id, value: combo.id %>
-                  <%= f.submit t(".add"), class: "btn btn-success btn-xs" %>
+                  <%= button_tag class: "btn btn-success btn-sm" do %>
+                    <i class="fa fa-plus-circle"></i>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

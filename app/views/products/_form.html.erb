@@ -26,7 +26,7 @@
     </div>
     <div class="col">    
       <%= f.label t ".status" %>
-      <%= f.select :status, Product.statuses.keys.to_a, {include_blank: t(".select_status")}, {class: "form-control"} %><br>
+      <%= f.select :status, enum_options_for_select(Product, :status), {include_blank: t(".select_status")}, {class: "form-control"} %><br>
     </div>
   </div>
   <%= f.submit t(".submit"), class: "btn btn-primary" %>

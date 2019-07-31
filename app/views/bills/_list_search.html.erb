@@ -1,0 +1,29 @@
+<div class="row">
+  <% @tables.each do |table| %>
+    <% bill = get_bill table %>
+    <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+      <div class="stats-small stats-small--1 card card-small">
+        <div class="card-body p-0 d-flex">
+          <div class="table-information d-flex flex-column m-auto">
+            <%= link_to bill.nil? ? bill_path(table.id) : bill_bill_details_path(bill.id),
+  bill.nil? ? {"data-toggle": "modal", "data-target": "#add-bill", remote: true} : {} do %>
+              <div class="stats-small__data text-center">
+                <span class="stats-small__label text-uppercase <%= bill.nil? ? "bg-success" : "bg-danger" %> " style="color: #fff"><%= table.number %></span>
+                <h6 class="count my-3">
+                  <%= bill.nil? ? "-" : bill.name %>
+                </h6>
+              </div>
+              <div class="stats-small__data">
+                <span class="stats-small__percentage stats-small__percentage--increase">
+                  <%= enum_l table, :amount_chair %>
+                </span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @tables, theme: Settings.theme_config, remote: true, id: "pagination" %>

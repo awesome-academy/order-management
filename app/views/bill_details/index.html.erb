@@ -45,10 +45,14 @@
                   </td>
                   <td><span><%= number_to_vnd bill_detail.price %></span></td>
                   <% if current_user.waiter? %>
-                    <td>
-                      <%= link_to t(".delete"), bill_detail, method: :delete,
-  data: {confirm: t(".sure")}, class: "btn btn-danger btn-sm" %>
-                      <%= f.submit t(".submit"), class: "btn btn-warning btn-sm" %>
+                    <td class="d-flex">
+                      <%= link_to bill_detail, method: :delete,
+  data: {confirm: t(".sure")}, class: "btn btn-danger btn-sm mr-1" do %>
+                        <i class="fa fa-trash-alt"></i>
+                      <% end %>
+                      <%= button_tag class: "btn btn-warning btn-sm" do %>
+                        <i class="fa fa-edit"></i>
+                      <% end %>
                     </td>
                   <% end %>
                 </tr>
@@ -93,11 +97,14 @@
                   <td><span><%= number_to_vnd bill_detail.price %></span></td>
                   <% if current_user.waiter? %>
                     <td>
-                    
-                      <%= link_to t(".delete"), bill_detail, method: :delete,
-  data: {confirm: t(".sure")}, class: "btn btn-danger btn-sm" %>
-                      <%= f.submit t(".submit"), class: "btn btn-warning btn-sm" %>
-                    </td>
+                    <td class="d-flex">
+                      <%= link_to bill_detail, method: :delete,
+  data: {confirm: t(".sure")}, class: "btn btn-danger btn-sm mr-1" do %>
+                        <i class="fa fa-trash-alt"></i>
+                      <% end %>
+                      <%= button_tag class: "btn btn-warning btn-sm" do %>
+                        <i class="fa fa-edit"></i>
+                      <% end %>
                   <% end %>
                 </tr>
               <% end %>

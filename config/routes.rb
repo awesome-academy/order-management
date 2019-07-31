@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   end
   get "/payment", to: "bills#payment"
   get "/list_bill", to: "bills#list_bill"
+  post "/search_table", to: "bills#search_table"
+  get "/search_table", to: "bills#index"
 end

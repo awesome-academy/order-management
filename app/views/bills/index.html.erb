@@ -7,17 +7,17 @@
         <div class="row">
           <div class="col">
             <%= label_tag t(".find_by_name") %>
-            <%= text_field_tag :name, "", class: "form-control", placeholder: "#{t ".find_by_name"}" %>
+            <%= text_field_tag :name, params[:name].present? ? params[:name] : "", class: "form-control", placeholder: "#{t ".find_by_name"}", id: "find_by_name" %>
           </div>
 
           <div class="col">
             <%= label_tag t(".find_by_type") %>
-            <%= select_tag :amount_chair, options_for_select(enum_options_for_select(Table, :amount_chair)), class: "form-control"%>
+            <%= select_tag :amount_chair, options_for_select(enum_options_for_select(Table, :amount_chair).insert(0, "")), class: "form-control", id: "find_by_type" %>
           </div>
 
           <div class="col">
             <%= label_tag t(".find_by_status") %>
-            <%= select_tag :amount_chair, options_for_select(Settings.statusTable), class: "form-control"%>
+            <%= select_tag :amount_chair, options_for_select(enum_options_for_select(Table, :status).insert(0, "")), class: "form-control", id: "find_by_status" %>
           </div>
         </div>
       </div>
@@ -25,33 +25,8 @@
   </div>
 </div>
 
-<div class="row">
-  <% @tables.each do |table| %>
-    <% bill = get_bill table %>
-    <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-      <div class="stats-small stats-small--1 card card-small">
-        <div class="card-body p-0 d-flex">
-          <div class="table-information d-flex flex-column m-auto">
-            <%= link_to bill.nil? ? bill_path(table.id) : bill_bill_details_path(bill.id),
-  bill.nil? ? {"data-toggle": "modal", "data-target": "#add-bill", remote: true} : {} do %>
-              <div class="stats-small__data text-center">
-                <span class="stats-small__label text-uppercase <%= bill.nil? ? "bg-success" : "bg-danger" %> " style="color: #fff"><%= table.number %></span>
-                <h6 class="count my-3">
-                  <%= bill.nil? ? "-" : bill.name %>
-                </h6>
-              </div>
-              <div class="stats-small__data">
-                <span class="stats-small__percentage stats-small__percentage--increase">
-                  <%= enum_l table, :amount_chair %>
-                </span>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-  <% end %>
+<div id="list_table">
+  <%= render "bills/list_search" %>
 </div>
 
 <div class="modal fade" id="add-bill">
@@ -69,5 +44,3 @@
     </div>
   </div>
 </div>
-
-<%= paginate @tables, theme: Settings.theme_config %>
