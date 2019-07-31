@@ -12,6 +12,9 @@ vi:
           double_table: "Bàn đôi"
           four_table: "Bàn bốn"
           eight_table: "Bàn tám"
+        statuses:
+          active: "Ngừng hoạt động"
+          unactive: "Hoạt động"
       product:
         statuses:
           allowed: "Đang cung cấp"
