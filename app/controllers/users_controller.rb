@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: %i(new create)
   before_action :load_user, except: %i(new create index search_user)
-  before_action :admin_user, except: %i(show)
+  before_action :admin_user, except: %i(show edit update)
   before_action :load_users, only: %i(index search_user)
   before_action ->{create_session :user}
+  before_action ->{permission_access @user}, only: %i(show edit update)
 
   def index; end
   

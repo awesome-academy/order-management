@@ -20,7 +20,13 @@ class ApplicationController < ActionController::Base
 
   def admin_user
     return if current_user.manager?
-    flash[:danger] = t(".no_role")
+    flash[:danger] = t(".not_role")
+    redirect_to root_url
+  end
+
+  def permission_access user
+    return if current_user == user || current_user.manager?
+    flash[:danger] = t(".not_role")
     redirect_to root_url
   end
 

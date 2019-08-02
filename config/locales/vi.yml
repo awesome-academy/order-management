@@ -23,6 +23,13 @@ vi:
         statuses:
           allowed: "Đang cung cấp"
           unallowed: "Ngừng cung cấp"
+  application:
+    admin_user:
+        not_role: "Bạn không có quyền"
+    is_user_login:
+      not_user: "Bạn không có quyền"
+    permission_access:
+      not_role: "Bạn không có quyền"
   layouts:
     application:
       title: "Ruby on Rails dự án 1"
@@ -51,6 +58,8 @@ vi:
       create_user: "Thêm nhân viên"
     edit:
       edit_user: "Cập nhật nhân viên"
+      not_role: "Bạn không có quyền"
+      not_cusrent_user: "Bạn không có quyền"
     form:
       role: "Quyền"
       stt: "STT"
@@ -65,6 +74,7 @@ vi:
       submit: "Gửi"
     show:
       not_exits: "User không tồn tại"
+      not_role: "Bạn không có quyền"
     index:
       find_by_name: "Tìm theo tên"
       find_by_role: "Tìm theo quyền"
