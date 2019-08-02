@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :address, presence: true, length: {minimum: Settings.min_address, maximum: Settings.max_address}
 
   scope :ordered_by_name, -> {order(name: :asc)}
+  scope :find_by_name, -> name {where("name like ?", "%#{name}%")}
+  scope :find_by_role, -> role {where(role: role)}
   
   has_secure_password
 

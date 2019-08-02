@@ -1,5 +1,6 @@
 class ComboProductsController < ApplicationController
   before_action :load_combo_product, except: %i(create index)
+  before_action ->{create_session :combo_product}
 
   def create
     @combo_product = ComboProduct.new combo_product_params

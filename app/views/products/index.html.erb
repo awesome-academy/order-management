@@ -3,29 +3,23 @@
 <div class="row">
   <div class="col">
     <div class="card card-small mb-4">
-      <div class="card-header border-bottom">
-        <%= link_to new_product_path, class: "btn btn-success btm-sm" do %>
-          <i class="fa fa-plus-circle"></i>
-        <% end %>
-      </div>
-      <div class="card-body p-0 pb-3 text-center">
-        <table class="table mb-0">
-          <thead class="bg-light">
-            <tr>
-              <th scope="col" class="border-0"><%= t ".stt" %></th>
-              <th scope="col" class="border-0"><%= t ".name" %></th>
-              <th scope="col" class="border-0"><%= t ".price" %></th>
-              <th scope="col" class="border-0"><%= t ".status" %></th>
-              <th scope="col" class="border-0"><%= t ".action" %></th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= render partial: "product", collection: @products %>
-          </tbody>
-        </table>
+      <div class="card-body p-0 m-3 text-left">
+        <div class="row">
+          <div class="col">
+            <%= label_tag t(".find_by_name_product") %>
+            <%= text_field_tag :name, params[:name].present? ? params[:name] : "", class: "form-control", placeholder: "#{t ".find_by_name_product"}", id: "find_by_name_product" %>
+          </div>
+
+          <div class="col">
+            <%= label_tag t(".find_by_status_product") %>
+            <%= select_tag :status, options_for_select(enum_options_for_select(Product, :status).insert(0, "")), class: "form-control", id: "find_by_status_product" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<%= paginate @products, theme: Settings.theme_config %>
+<div id="list_product">
+  <%= render "products/list_product" %>
+</div>

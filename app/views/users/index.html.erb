@@ -3,30 +3,23 @@
 <div class="row">
   <div class="col">
     <div class="card card-small mb-4">
-      <div class="card-header border-bottom">
-        <%= link_to new_user_path, class: "btn btn-success btm-sm" do %>
-          <i class="fa fa-plus-circle"></i>
-        <% end %>
-      </div>
-      <div class="card-body p-0 pb-3 text-center">
-        <table class="table mb-0">
-          <thead class="bg-light">
-            <tr>
-              <th scope="col" class="border-0"><%= t ".stt" %></th>
-              <th scope="col" class="border-0"><%= t ".username" %></th>
-              <th scope="col" class="border-0"><%= t ".phone" %></th>
-              <th scope="col" class="border-0"><%= t ".username" %></th>
-              <th scope="col" class="border-0"><%= t ".updated_at" %></th>
-              <th scope="col" class="border-0"><%= t ".action" %></th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= render partial: "user", collection: @users %>
-          </tbody>
-        </table>
+      <div class="card-body p-0 m-3 text-left">
+        <div class="row">
+          <div class="col">
+            <%= label_tag t(".find_by_name") %>
+            <%= text_field_tag :name, params[:name].present? ? params[:name] : "", class: "form-control", placeholder: "#{t ".find_by_name"}", id: "find_by_name_user" %>
+          </div>
+
+          <div class="col">
+            <%= label_tag t(".find_by_role") %>
+            <%= select_tag :role, options_for_select(enum_options_for_select(User, :role).insert(0, "")), class: "form-control", id: "find_by_role_user" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<%= paginate @users, theme: Settings.theme_config %>
+<div id="list_user">
+  <%= render "users/list_user" %>
+</div>

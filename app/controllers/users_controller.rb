@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: %i(new create)
-  before_action :load_user, except: %i(new create index)
+  before_action :load_user, except: %i(new create index search_user)
   before_action :admin_user, except: %i(show)
+  before_action :load_users, only: %i(index search_user)
+  before_action ->{create_session :user}
 
-  def index
-    @users = User.page(params[:page]).per(Settings.num_user).ordered_by_name
-  end
+  def index; end
   
   def new
     @user = User.new
@@ -43,6 +43,13 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def search_user
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit User::USER_PARAMS
@@ -53,5 +60,12 @@ class UsersController < ApplicationController
     return if @user
     flash[:danger] = t(".not_exits")
     redirect_to root_path
+  end
+
+  def load_users
+    @users = User.where nil
+    @users = @users.find_by_name(params[:name]) if params[:name].present?
+    @users = @users.find_by_role(params[:role]) if params[:role].present?
+    @users = @users.page(params[:page]).per Settings.num_user
   end
 end

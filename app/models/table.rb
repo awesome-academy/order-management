@@ -13,6 +13,7 @@ class Table < ApplicationRecord
   scope :group_by_id, -> {group(:id)}
   scope :find_by_type, -> type {where(amount_chair: type)}
   scope :find_by_status, -> status {where(status: status)}
+  scope :find_by_name_table, -> name {where("number like ?", "%#{name}%")}
 
   delegate :name, to: :bill, prefix: true
   delegate :status, to: :bill, prefix: true

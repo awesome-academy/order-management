@@ -33,6 +33,13 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col">
+      <%= f.label t(".role") %>
+      <%= f.select :role, enum_options_for_select(User, :role), {include_blank: t(".select_type")}, {class: "form-control mb-3"} %>
+    </div>
+  </div>
+
   <%= f.submit t(".submit"), class: "btn btn-primary" %>
   <%= link_to t(".list_user"), users_path, class: "btn btn-success btn-sm" %>
   <%= button_tag t(".reset"), type: :reset, class: "btn btn-warning btn-sm mr-2" %>
