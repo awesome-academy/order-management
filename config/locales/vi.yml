@@ -33,6 +33,7 @@ vi:
       table: "Bàn"
       combo: "Gói"
       bill: "Hóa đơn"
+      list_bill: "Danh sách đơn"
     main_navbar:
       login: "Đăng nhập"
       language: "Ngôn ngữ"
@@ -51,6 +52,7 @@ vi:
     edit:
       edit_user: "Cập nhật nhân viên"
     form:
+      role: "Quyền"
       stt: "STT"
       list_user: "Danh sách nhân viên"
       reset: "Đặt lại"
@@ -64,17 +66,19 @@ vi:
     show:
       not_exits: "User không tồn tại"
     index:
-      stt: "STT"
+      find_by_name: "Tìm theo tên"
+      find_by_role: "Tìm theo quyền"
       new_user: "Thêm nhân viên"
       all_user: "Danh sách tài khoản"
       add_user: "Tạo tài khoản"
+    list_user:
+      stt: "STT"
       name: "Họ tên"
       address: "Địa chỉ"
       phone: "Số điện thoại"
       username: "Tên đăng nhập"
-      created_at: "Ngày tạo"
-      updated_at: "Ngày sửa"
       action: "Hành động"
+      updated_at: "Cập nhật"
     user:
       update_at: "Cập nhật"
       delete: "xóa "
@@ -109,12 +113,15 @@ vi:
       success: "Chào mừng tới ứng dụng gọi món"
   products:
     index:
-      price: "Giá"
       new_product: "Thêm sản phẩm"
-      name: "Tên sản phẩm"
-      stt: "STT"
       all_product: "Danh sách sản phẩm"
       add_product: "Thêm sản phẩm"
+      find_by_name_product: "Tìm theo tên sản phẩm"
+      find_by_status_product: "Tìm theo trạng thái sản phẩm"
+    list_product:
+      price: "Giá"
+      name: "Tên sản phẩm"
+      stt: "STT"
       status: "Trạng thái"
       combo: "Gói"
       action: "Hành động"
@@ -195,10 +202,13 @@ vi:
     edit:
       edit_combo: "Sửa gói"
     index:
-      stt: "STT"
       new_combo: "Tạo gói mơi"
-      combos: "Danh sách gói"
       add_combo: "Thêm gói"
+      find_by_name_combo: "Tìm theo tên gói"
+      find_by_status_combo: "Tìm theo trạng thái gói"
+    list_combo:
+      stt: "STT"
+      combos: "Danh sách gói"
       name: "Tên"
       price: "Giá"
       status: "Trạng thái"
@@ -225,6 +235,8 @@ vi:
       stt: "STT"
       list_product_in_combo: "Danh sách sản phẩm trong combo"
       add_product_to_combo: "Thêm sản phẩm vào combo"
+      combo: "Gói"
+      product: "Sản phẩm"
     create:
       success_create: "Tạo thành công"
     update:
@@ -236,12 +248,10 @@ vi:
       not_exits: "Gói không tồn tại"
   combo_products:
     edit_combo_product:
-      success: "Cập nhật thành công!"
+      update: "Cập nhật"
+      update_success: "Cập nhật thành công!"
       update_count_combo_product: "Cập nhật số lượng sản phẩm trong gói"
-    combo_product:
       sure: "Xóa! Đồng ý?"
-    edit_combo_product:
-      update_count_combo_product: "Cập nhật"
       count: "Số lượng"
     new_combo_product:
       sure: "Xóa! Đồng ý?"
@@ -252,9 +262,6 @@ vi:
       action: "Hành động"
       sure: "Xóa! Đồng ý?"
       amount_product: "Tổng sản phẩm"
-    show:
-      combo: "Gói"
-      product: "Sản phẩm"
     create:
       success_create: "Tạo thành công"
       error_create: "Tạo không thành công"
@@ -266,14 +273,17 @@ vi:
   tables:
     index:
       new_table: "Tạo bàn"
-      stt: "STT"
       all_table: "Danh sách bàn"
       add_table: "Thêm bàn"
+      amount_chair: "Tổng số ghế"
+      find_by_name_table: "Tìm theo tên"
+      find_by_type_table: "Tìm theo loại"
+    list_table:
+      stt: "STT"
       number: "Số bàn"
       description: "Mô tả"
-      amount_chair: "Tổng số ghế"
-      action: "Hành động"
       type: "Loại bàn"
+      action: "Hành động"
     table:
       delete: "Delete"
       sure: "Xóa! Đồng ý?"
@@ -366,12 +376,14 @@ vi:
       name_c: "Họ tên:"
       name_u: "Tạo bởi:"
     list_bill:
+      stt: "STT"
       all_bill: "Đơn hàng"
-      name_c: "Tên khách hàng"
-      name_p: "Tên sản phẩm"
+      name_customer: "Tên khách hàng"
+      name_user: "Tên nhân viên"
       count: "Số lượng"
       type: "Loại"
       product: "sản phẩm"
+      show: "Hiển thị"
   bill_details:
     combo:
       combo: "gói"

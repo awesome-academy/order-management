@@ -13,4 +13,6 @@ class Combo < ApplicationRecord
   scope :list_combos, -> id_combo{where.not(id: id_combo)}
   scope :ordered_by_name, -> {order name: :asc}
   scope :not_exits_in_bill, -> id_combo{where.not(id: id_combo)}
+  scope :find_by_name, -> name {where("name like ?", "%#{name}%")}
+  scope :find_by_status, -> status {where(status: status)}
 end

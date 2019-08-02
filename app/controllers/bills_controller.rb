@@ -1,6 +1,9 @@
 class BillsController < ApplicationController
   before_action :load_bill, only: %i(destroy update payment)
   before_action :load_table, only: %i(index search_table)
+  before_action ->{create_session :bill}, except: %i(list_bill)
+  before_action ->{create_session :list_bill}, only: %i(list_bill)
+
 
   def index
     @table = Table.new

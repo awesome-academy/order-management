@@ -16,4 +16,12 @@ module SessionsHelper
     session.delete :user_id
     @current_user = nil
   end
+
+  def create_session page
+    session[:page_active] = page
+  end
+
+  def check_sesion page
+    session[:page_active] == page
+  end
 end

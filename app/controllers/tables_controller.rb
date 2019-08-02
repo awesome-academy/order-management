@@ -1,11 +1,11 @@
 class TablesController < ApplicationController
   before_action :logged_in_user, except: %i(new create)
-  before_action :load_table, except: %i(new create index)
+  before_action :load_table, except: %i(new create index search_table)
   before_action :admin_user, except: %i(show)
+  before_action :load_tables, only: %i(index search_table)
+  before_action ->{create_session :table}
 
-  def index
-    @tables = Table.page(params[:page]).per(Settings.num_table).ordered_by_number
-  end
+  def index; end
   
   def new
     @table = Table.new
@@ -48,6 +48,13 @@ class TablesController < ApplicationController
     redirect_to tables_url
   end
 
+  def search_table
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   private
   def table_params
     params.require(:table).permit Table::TABLE_PARAMS
@@ -58,5 +65,12 @@ class TablesController < ApplicationController
     return if @table
     flash[:danger] = t(".not_exits")
     redirect_to root_path
+  end
+
+  def load_tables
+    @tables = Table.where nil
+    @tables = @tables.find_by_name_table(params[:name]) if params[:name].present?
+    @tables = @tables.find_by_type(params[:type]) if params[:type].present?
+    @tables = @tables.page(params[:page]).per Settings.num_table
   end
 end

@@ -33,6 +33,7 @@ en:
       table: "Table"
       combo: "Combo"
       bill: "Bill"
+      list_bill: "List bill"
     main_navbar:
       login: "Đăng nhập"
       language: "Language"
@@ -51,6 +52,7 @@ en:
     edit:
       edit_user: "Edit User"
     form:
+      role: "Role"
       stt: "STT"
       list_user: "List user"
       reset: "Reset"
@@ -64,17 +66,19 @@ en:
     show:
       not_exits: "User not exits"
     index:
-      stt: "STT"
+      find_by_name: "Find by name"
+      find_by_role: "Find by role"
       new_user: "Add user"
       all_user: "All account"
       add_user: "Add user"
+    list_user:
+      stt: "STT"
       name: "Name"
       address: "Address"
       phone: "phone"
       username: "Username"
-      created_at: "Created at"
-      updated_at: "Updated at"
       action: "Action"
+      updated_at: "Updated at"
     user:
       update_at: "Update at"
       delete: "delete"
@@ -109,12 +113,15 @@ en:
       success: "Wellcome to order app"
   products:
     index:
-      price: "Price"
       new_product: "Add product"
-      name: "Name product"
-      stt: "STT"
       all_product: "All Product"
       add_product: "Add product"
+      find_by_name_product: "Find by name product"
+      find_by_status_product: "Find by status product"
+    list_product:
+      name: "Name product"
+      price: "Price"
+      stt: "STT"
       status: "Status"
       combo: "Combo"
       action: "Action"
@@ -195,10 +202,13 @@ en:
     edit:
       edit_combo: "Edit combo"
     index:
-      stt: "STT"
       new_combo: "New combo"
       combos: "All combo"
       add_combo: "Add combo"
+      find_by_name_combo: "Find by name combo"
+      find_by_status_combo: "Find by status combo"
+    list_combo:
+      stt: "STT"
       name: "Name"
       price: "Price"
       status: "Status"
@@ -225,6 +235,8 @@ en:
       stt: "STT"
       list_product_in_combo: "List product in combo"
       add_product_to_combo: "Add product to combo"
+      combo: "Combo"
+      product: "Product"
     create:
       success_create: "Create success"
     update:
@@ -234,14 +246,12 @@ en:
       delete_err: "Destroy fail"
     load_combo:
       not_exits: "Combo product not exist"
-    combo_products:
-      edit_combo_product:
-        success: "Update success!"
-        update_count_combo_product: "Update number product in combo success"
-      combo_product:
-        sure: "Delete! sure?"
+  combo_products:
     edit_combo_product:
-      update_count_combo_product: "Update"
+      update: "Update"
+      update_success: "Update success"
+      update_count_combo_product: "Update number product in combo"
+      sure: "Delete! sure?"
       count: "Count"
     new_combo_product:
       sure: "Delete! sure?"
@@ -252,9 +262,6 @@ en:
       action: "Action"
       sure: "Delete! sure?"
       amount_product: "Amount product"
-    show:
-      combo: "Combo"
-      product: "Product"
     create:
       success_create: "Create success"
       error_create: "Create fail"
@@ -266,14 +273,17 @@ en:
   tables:
     index:
       new_table: "Create table"
-      stt: "STT"
       all_table: "List table"
       add_table: "Add table"
+      amount_chair: "Amount chair"
+      find_by_name_table: "Find by name table"
+      find_by_type_table: "Find by type table"
+    list_table:
+      stt: "STT"
       number: "Number table"
       description: "Description"
-      amount_chair: "Amount chair"
-      action: "Action"
       type: "Table type"
+      action: "Action"
     table:
       delete: "Delete"
       sure: "Delete! sure?"
@@ -366,12 +376,14 @@ en:
       name_c: "Name:"
       name_u: "Created by:"
     list_bill:
+      stt: "STT"
       all_bill: "Bills"
-      name_c: "Name customer"
-      name_p: "Name product"
+      name_customer: "Name customer"
+      name_user: "Name user"
       count: "Count"
       type: "Type"
       product: "products"
+      show: "Show"
   bill_details:
     combo:
       combo: "combo"

@@ -29,19 +29,6 @@
               <span class="text-success text-semibold">28%</span> in the last week. Great job!</p>
           </div>
         </a>
-        <a class="dropdown-item" href="#">
-          <div class="notification__icon-wrapper">
-            <div class="notification__icon">
-              <i class="material-icons">&#xE8D1;</i>
-            </div>
-          </div>
-          <div class="notification__content">
-            <span class="notification__category">Sales</span>
-            <p>Last week your store’s sales count decreased by
-              <span class="text-danger text-semibold">5.52%</span>. It could have been worse!</p>
-          </div>
-        </a>
-        <a class="dropdown-item notification__all text-center" href="#"> View all Notifications </a>
       </div>
     </li>
     <li class="nav-item dropdown">
@@ -49,30 +36,37 @@
         <span class="d-none d-md-inline-block"><%= t ".language" %></span>
       </a>
       <div class="dropdown-menu dropdown-menu-small">
-        <%= link_to "#", locale: "en", class: "dropdown-item" do %>
-          <i class="material-icons">vertical_split</i><%= t ".lang_en" %></a>
-        <% end %>
-        <%= link_to "#", locale: "vi", class: "dropdown-item" do %>
-          <i class="material-icons">vertical_split</i><%= t ".lang_vi" %></a>
-        <% end %>
-        <%= link_to_unless_current "", { locale: "en"}, {class: 'english language'} %>
-        <%= link_to_unless_current "", { locale: "vi"}, {class: 'english language'} %>
+        <ul class="pl-2">
+          <li class="mb-1 dropdown-item">
+            <%= link_to locale: "en" do %>
+              <i class="material-icons">vertical_split</i><%= t ".lang_en" %></a>
+            <% end %>
+          </li>
+          <li class="mb-2 dropdown-item">
+            <%= link_to locale: "vi" do %>
+              <i class="material-icons">vertical_split</i><%= t ".lang_vi" %></a>
+            <% end %>
+          </li>
+        </ul>
       </div>
     </li>
     <% if logged_in? %>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-nowrap px-3 pt-2" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <%= link_to "#", {"data-toggle": "dropdown", "role": "button", "aria-haspopup": "true",
+  "aria-expanded": "false", class: "nav-link dropdown-toggle text-nowrap px-3 pt-2"} do %>
           <%= image_tag "/images/avatars/avata.jpg", class: "user-avatar rounded-circle mr-2" %>
           <span class="d-none d-md-inline-block"><%= current_user.name %></span>
-        </a>
+        <% end %>
         <div class="dropdown-menu dropdown-menu-small">
           <a class="dropdown-item" href="user-profile-lite.html">
-            <i class="material-icons">&#xE7FD;</i> Profile</a>
+            <i class="material-icons">&#xE7FD;</i> Profile
+          </a>
           <a class="dropdown-item" href="components-blog-posts.html">
-            <i class="material-icons">vertical_split</i> Update profile</a>
+            <i class="material-icons">vertical_split</i> Update profile
+          </a>
           <a class="dropdown-item" href="add-new-post.html">
           <div class="dropdown-divider"></div>
-          <%= link_to logout_path, method: :delete, class: "dropdown-item" do %>
+          <%= link_to logout_path, method: :delete, class: "dropdown-item pl-4" do %>
             <%= t ".logout" %>
             <i class="material-icons text-danger"></i>
           <% end %>

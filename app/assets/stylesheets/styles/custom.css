@@ -19,3 +19,7 @@
 .w-70 {
   width: 70px !important;
 }
+
+#main-logo {
+  max-width: 30px;
+}

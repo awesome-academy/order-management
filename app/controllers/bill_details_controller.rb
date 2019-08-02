@@ -1,6 +1,7 @@
 class BillDetailsController < ApplicationController
   before_action :load_bill_detail, only: %i(destroy update)
   before_action :find_bill, only: %i(index)
+  before_action ->{create_session :bill}
   
   def index
     @bill_details = BillDetail.includes(:bill).where_bill(params[:bill_id])
