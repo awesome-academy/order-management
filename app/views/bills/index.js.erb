@@ -1,2 +1,2 @@
 $('#list_table').html('<%= j render 'bills/list_search', tables: @tables %>');
-$('#paginator').html('<%= j paginate(@tables, remote: true) %>');
+$('#paginate-table').html('<%= j paginate(@tables, theme: Settings.theme_config, remote: true) %>');

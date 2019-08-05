@@ -1,0 +1,3 @@
+$('.modal-title').html('<%= t ".edit_bill_detail" %>');
+$('.modal-body').html('<%= j render "bill_details/edit_bill_detail", bill_detail: @bill_detail %>');
+$('#id_bill_update').val(<%= @bill.id %>);

@@ -1,42 +1,37 @@
 
-<div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-  <div class="card card-small h-100">
-    <div class="card-header border-bottom">
-      <h6 class="m-0"><%= t ".combo" %></h6>
-    </div>
-    <div class="card-body d-flex py-0">
-      <table class="table user-list">
-        <thead>
-          <tr>
-            <th><span><%= t ".stt" %></span></th>
-            <th><span><%= t ".name" %></span></th>
-            <th><span><%= t ".price" %></span></th>
-            <th><span><%= t ".action" %></span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @combos.each_with_index do |combo, key| %>
-            <tr>
-              <td><%= get_index_page key %></td>
-              <td><%= link_to combo.name, combo %></td>
-              <td><span><%= number_to_vnd combo.price %></span></td>
-              <td>
-                <%= form_for @bill_detail do |f| %>
-                  <%= f.hidden_field :type_detail, value: :combo %>
-                  <%= f.hidden_field :price, value: combo.price %>
-                  <%= f.hidden_field :count, value: Settings.count_auto %>
-                  <%= f.hidden_field :bill_id, value: params[:bill_id] %>
-                  <%= f.hidden_field :combo_id, value: combo.id %>
-                  <%= button_tag class: "btn btn-success btn-sm" do %>
-                    <i class="fa fa-plus-circle"></i>
-                  <% end %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <%= paginate @combos, theme: Settings.theme_config, param_name: :combo, class: "ml-3" %>
-  </div>
+<div class="card-body d-flex py-0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><span><%= t ".name" %></span></th>
+        <th><span><%= t ".price" %></span></th>
+        <th><span><%= t ".action" %></span></th>
+      </tr>
+    </thead>
+    <tbody id="list-combo">
+      <% @combos.each do |combo| %>
+        <tr id="<%= "combo-#{combo.id}" %>">
+          <td><%= link_to combo.name, combo %></td>
+          <td><span><%= number_to_vnd combo.price %></span></td>
+          <td>
+            <%= form_for [BillDetail.new], remote: true do |f| %>
+              <%= f.hidden_field :type_detail, value: :combo %>
+              <%= f.hidden_field :price, value: combo.price %>
+              <%= f.hidden_field :count, value: Settings.count_auto %>
+              <%= f.hidden_field :bill_id, value: params[:bill_id], class: "bill_id" %>
+              <%= f.hidden_field :combo_id, value: combo.id %>
+              <%= button_tag class: "btn btn-success btn-sm" do %>
+                <i class="fa fa-plus-circle"></i>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="list_combo">
+  <%= paginate @combos, remote: true, params: {controller: "bill_details", action: "show_combos",
+  _: nil, _method: nil, authenticity_token: nil, utf8: nil}, theme: Settings.theme_config, param_name: :combo %>
 </div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: "home_pages#home"
+
+  mount ActionCable.server => "/cable"
   
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
@@ -21,6 +23,9 @@ Rails.application.routes.draw do
   get "/search_table_manager", to: "tables#index"
   get "/search_product", to: "products#index"
   get "/search_combo", to: "combos#index"
+  get "/bill_detail", to: "bill_details#index"
+  get "/show_products", to: "bill_details#show_products"
+  get "/show_combos", to: "bill_details#show_combos"
   post "/search_table", to: "bills#search_table"
   post "/search_user", to: "users#search_user"
   post "/search_table_manager", to: "tables#search_table"

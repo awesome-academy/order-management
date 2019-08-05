@@ -1,0 +1,3 @@
+$('.modal-title').html('<%= t ".show_product" %>');
+$('.modal-body').html('<%= j render "bill_details/product", products: @products %>');
+$('.bill_id').val('<%= @bill.id %>');

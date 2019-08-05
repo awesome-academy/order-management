@@ -26,4 +26,6 @@
   <% end %>
 </div>
 
-<%= paginate @tables, theme: Settings.theme_config, remote: true, id: "pagination" %>
+<div id="paginate-table">
+  <%= paginate @tables, theme: Settings.theme_config, remote: true %>
+</div>

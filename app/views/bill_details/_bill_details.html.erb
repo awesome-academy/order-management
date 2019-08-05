@@ -1,0 +1,19 @@
+<% @bill_details.order_by_type.each_with_index do |bill_detail, key| %>
+  <tr id="bill-detail-<%= bill_detail.id %>">
+    <td><span><%= get_index(key) %></span></td>
+    <td><span><%= link_to bill_detail.product? ? bill_detail.product_name : bill_detail.combo_name,
+  bill_detail.product? ? bill_detail.product : bill_detail.combo %></span></td>
+    <td id="count-bill-detail-<%= bill_detail.id %>" ><%= bill_detail.count %></td>
+    <td><%= number_to_vnd bill_detail.price %></td>
+    <td class="d-flex">
+      <%= link_to bill_detail_path(bill_detail, bill_id: bill_detail.bill_id), method: :delete, remote: true,
+  data: {confirm: t(".sure")}, class: "btn btn-danger btn-sm mr-1" do %>
+        <i class="fa fa-trash-alt"></i>
+      <% end %>
+      <%= link_to bill_detail_path(bill_detail, bill_id: @bill.id),
+  {"data-toggle": "modal", "data-target": "#model_show", remote: true, class: "btn btn-info"} do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

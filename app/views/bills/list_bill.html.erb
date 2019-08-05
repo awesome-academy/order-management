@@ -16,9 +16,9 @@
               <th><span><%= t ".show" %></span></th>
             </tr>
           </thead>
-            <tbody>
+            <tbody id="list-bill-chef">
               <% @bills.each_with_index do |bill, key| %>
-                <tr>
+                <tr id="<%= "bill-chef-#{bill.id}" %>">
                   <td><%= get_index_page("page", key) %></td>
                   <td><%= bill.name %></td>
                   <td><%= bill.user_name %></td>
