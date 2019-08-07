@@ -395,9 +395,29 @@ en:
       product: "products"
       show: "Show"
   bill_details:
+    chef:
+      stt: "STT"
+      name_product: "Name product"
+      count: "Count"
+    edit_bill_detail:
+      success: "Success"
+      update_success: "Success"
+      update_count_bill_detail: "Update count bill"
+      count: "Count"
+    show:
+      edit_bill_detail: "Update bill"
+    show_combos:
+      show_combo: "Show combos"
+    show_products:
+      show_product: "Show products"
+    bill_details:
+      sure: "Delete! sure?"
     combo:
       combo: "combo"
     index:
+      close: "Close"
+      add_product: "Order product"
+      add_combo: "Order combo"
       product_used: "Product used"
       combo_used: "Combo used"
       stt: "STT"

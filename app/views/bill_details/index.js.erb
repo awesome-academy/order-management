@@ -1,0 +1,6 @@
+<% if @bill_detail.product? %>
+  $('.modal-body').html('<%= j render "bill_details/product", products: @products %>');
+<% else %>
+  $('.modal-body').html('<%= j render "bill_details/combo", combos: @combos %>');
+<% end %>
+$('.bill_id').val('<%= @bill.id %>')

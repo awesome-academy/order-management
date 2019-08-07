@@ -20,6 +20,12 @@ class BillsController < ApplicationController
   def create
     @bill = Bill.new bill_params
     if @bill.save
+      ActionCable.server.broadcast "bills",
+        stt: Bill.active.size,
+        name_customer: @bill.name,
+        name_user: current_user.name,
+        bill_id: @bill.id,
+        type: "add_bill"
       update_status_table Settings.active_table
       flash[:success] = t(".success_create")
       redirect_to bill_bill_details_path(@bill)
@@ -31,6 +37,9 @@ class BillsController < ApplicationController
 
   def update
     if @bill.update status: bill_params[:status]
+      ActionCable.server.broadcast "bills",
+        bill_id: @bill.id,
+        type: "update_bill"
       update_status_table Settings.unactive_table
       flash[:success] = t(".payment_s")
     else
@@ -42,6 +51,9 @@ class BillsController < ApplicationController
   def destroy
     if @bill.destroy
       update_status_table Settings.unactive_table
+      ActionCable.server.broadcast "bills",
+        bill_id: @bill.id,
+        type: "destroy_bill"
       flash[:success] = t(".delete_s")
     else
       flash[:danger] = t(".delete_err")

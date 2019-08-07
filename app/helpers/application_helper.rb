@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def get_index_page page = "page", key
-    params[page].to_i * Settings.number_in_page + key + Settings.start
+    (params[page].blank? ? 0 : (params[page].to_i - 1)) * Settings.number_in_page + key + Settings.start
   end
 
   def get_index key

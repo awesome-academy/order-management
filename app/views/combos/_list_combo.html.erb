@@ -26,4 +26,6 @@
   </div>
 </div>
 
-<%= paginate @combos, theme: Settings.theme_config %>
+<div id="paginate-combo">
+  <%= paginate @combos, theme: Settings.theme_config, remote: true %>
+</div>

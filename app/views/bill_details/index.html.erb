@@ -7,116 +7,54 @@
           <%= link_to t(".payment"), payment_path(id: @bill), class: "btn btn-success btn-sm" %>
           <%= link_to t(".cancle"), @bill, method: :delete,
   data: {confirm: t(".sure")}, class: "btn btn-danger btn-sm" %>
+          <%= link_to t(".add_product"), show_products_path(bill_id: @bill), {"data-toggle": "modal", "data-target": "#model_show", remote: true, class: "btn btn-info"} %>
+          <%= link_to t(".add_combo"), show_combos_path(bill_id: @bill), {"data-toggle": "modal", "data-target": "#model_show", remote: true, class: "btn btn-info"} %>
         <% end %>
       </div>
     </div>
   </div>
 
-  <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
-    <div class="card card-small h-100">
-      <div class="card-header border-bottom">
-        <h6 class="m-0"><%= t ".product_used" %></h6>
-      </div>
-      <div class="card-body d-flex py-0">
-        <table class="table mb-0">
-          <thead class="bg-light">
-            <tr>
-              <th scope="col" class="border-0"><%= t ".stt" %></th>
-              <th scope="col" class="border-0"><%= t ".name_product" %></th>
-              <th scope="col" class="border-0"><%= t ".count" %></th>
-              <th scope="col" class="border-0"><%= t ".price" %></th>
-              <% if current_user.waiter? %>
-                <th scope="col" class="border-0"><%= t ".action" %></th>
-              <% end %>
-            </tr>
-          </thead>
-          <tbody>
-            <% @bill_details.product.each_with_index do |bill_detail, key| %>
-              <%= form_for bill_detail do |f| %>
-                <tr>
-                  <td><span><%= get_index_page("combo", key) %></span></td>
-                  <td><span><%= bill_detail.product_name %></span></td>
-                  <td class="w-70"><span>
-                    <% if current_user.waiter? %>
-                      <%= f.text_field :count, value: bill_detail.count, class: "form-control" %></span>
-                    <% else %>
-                      <%= bill_detail.count %>
-                    <% end %>
-                  </td>
-                  <td><span><%= number_to_vnd bill_detail.price %></span></td>
-                  <% if current_user.waiter? %>
-                    <td class="d-flex">
-                      <%= link_to bill_detail, method: :delete,
-  data: {confirm: t(".sure")}, class: "btn btn-danger btn-sm mr-1" do %>
-                        <i class="fa fa-trash-alt"></i>
-                      <% end %>
-                      <%= button_tag class: "btn btn-warning btn-sm" do %>
-                        <i class="fa fa-edit"></i>
-                      <% end %>
-                    </td>
-                  <% end %>
-                </tr>
-              <% end %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
-    <div class="card card-small h-100">
-      <div class="card-header border-bottom">
-        <h6 class="m-0"><%= t ".combo_used" %></h6>
-      </div>
-      <div class="card-body d-flex py-0">
-        <table class="table mb-0">
-          <thead class="bg-light">
-            <tr>
-              <th scope="col" class="border-0"><%= t ".stt" %></th>
-              <th scope="col" class="border-0"><%= t ".name_product" %></th>
-              <th scope="col" class="border-0"><%= t ".count" %></th>
-              <th scope="col" class="border-0"><%= t ".price" %></th>
-              <% if current_user.waiter? %>
-                <th scope="col" class="border-0"><%= t ".action" %></th>
-              <% end %>
-            </tr>
-          </thead>
-          <tbody>
-            <% @bill_details.combo.each_with_index do |bill_detail, key| %>
-              <%= form_for bill_detail do |f| %>
-                <tr>
-                  <td><span><%= get_index key %></span></td>
-                  <td><span><%= bill_detail.combo_name %></span></td>
-                  <td class="w-70"><span>
-                    <% if current_user.waiter? %>
-                      <%= f.text_field :count, value: bill_detail.count, class: "form-control" %></span>
-                    <% else %>
-                      <%= bill_detail.count %>
-                    <% end %>
-                  </td>
-                  <td><span><%= number_to_vnd bill_detail.price %></span></td>
-                  <% if current_user.waiter? %>
-                    <td>
-                    <td class="d-flex">
-                      <%= link_to bill_detail, method: :delete,
-  data: {confirm: t(".sure")}, class: "btn btn-danger btn-sm mr-1" do %>
-                        <i class="fa fa-trash-alt"></i>
-                      <% end %>
-                      <%= button_tag class: "btn btn-warning btn-sm" do %>
-                        <i class="fa fa-edit"></i>
-                      <% end %>
-                  <% end %>
-                </tr>
-              <% end %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
   <% if current_user.waiter? %>
-    <%= render "product" %>
-    <%= render "combo" %>
+    <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+      <div class="card card-small h-100">
+        <div class="card-header border-bottom">
+          <h6 class="m-0"><%= t ".product_used" %></h6>
+        </div>
+        <div class="card-body d-flex py-0">
+          <table class="table mb-0">
+            <thead class="bg-light">
+              <tr>
+                <th scope="col" class="border-0"><%= t ".stt" %></th>
+                <th scope="col" class="border-0"><%= t ".name_product" %></th>
+                <th scope="col" class="border-0"><%= t ".count" %></th>
+                <th scope="col" class="border-0"><%= t ".price" %></th>
+                <th scope="col" class="border-0"><%= t ".action" %></th>
+              </tr>
+            </thead>
+            <tbody id="list_product_in_bill">
+              <%= render "bill_details" %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <%= render "chef" %>
   <% end %>
+</div>
+
+<div class="modal fade" id="model_show">
+  <div class="modal-dialog modal-dialog-centered width-80">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t ".close" %></button>
+      </div>
+    </div>
+  </div>
 </div>

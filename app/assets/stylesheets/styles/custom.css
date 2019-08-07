@@ -9,7 +9,8 @@
 }
 
 .width-80 {
-  width: 80% !important;
+  max-width: 80% !important;
+  z-index: 2000 !important;
 }
 
 .table-information:hover {
@@ -22,4 +23,12 @@
 
 #main-logo {
   max-width: 30px;
+}
+
+.modal {
+  z-index: 3000 !important;
+}
+
+table, tr, th {
+  border: 1px solid #fff !important;
 }

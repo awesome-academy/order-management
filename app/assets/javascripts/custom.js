@@ -124,3 +124,17 @@ $(document).on ('change', '#find_by_status_combo', function(){
     call_ajax('/search_combo', 'POST', data);
   });
 });
+
+$(document).on ('click', '#stat', function(){
+  let star_date = $('#start-date').val();
+  let end_date = $('#end-date').val();
+  $.ajax({
+    url: '/stat',
+    type: 'POST',
+    dataType: 'json',
+    data: {start_date: star_date, end_date: end_date},
+    success: function(data){
+      console.log(data);
+    }
+  });
+});

@@ -213,6 +213,7 @@ vi:
       edit_combo: "Sửa gói"
     index:
       new_combo: "Tạo gói mơi"
+      combos: "Danh sách gói"
       add_combo: "Thêm gói"
       find_by_name_combo: "Tìm theo tên gói"
       find_by_status_combo: "Tìm theo trạng thái gói"
@@ -395,9 +396,29 @@ vi:
       product: "sản phẩm"
       show: "Hiển thị"
   bill_details:
+    chef:
+      stt: "STT"
+      name_product: "Tên sản phẩm"
+      count: "Số lượng"
+    edit_bill_detail:
+      success: "Success"
+      update_success: "Success"
+      update_count_bill_detail: "Cập nhật số lượng"
+      count: "Số lượng"
+    show:
+      edit_bill_detail: "Cập nhật đơn"
+    show_combos:
+      show_combo: "Xem danh sách gói"
+    show_products:
+      show_product: "Show danh sách sản phẩm"
+    bill_details:
+      sure: "Xóa! đồng ý?"
     combo:
       combo: "gói"
     index:
+      close: "Đóng"
+      add_product: "Gọi sản phẩm"
+      add_combo: "Gọi gói"
       product_used: "Sản phẩm đã dùng"
       combo_used: "Gói đã dùng"
       stt: "STT"

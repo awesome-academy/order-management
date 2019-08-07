@@ -1,2 +1,2 @@
 $('#list_combo').html('<%= j render 'combos/list_combo', combos: @combos %>');
-$('#paginator').html('<%= j paginate(@combos, remote: true) %>');
+$('#paginate-combos').html('<%= j paginate(@combos, theme: Settings.theme_config, remote: true) %>');
