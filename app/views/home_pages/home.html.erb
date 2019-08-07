@@ -1,1 +1,28 @@
 <% provide :title, t(".home") %>
+<div class="container">
+  <div class="row">
+    <div class='col-sm-5'>
+      <div class="form-group">
+        <label>Ngày bắt đầu</label>
+        <input type="text" id="start-date" data-provide='datepicker' class="form-control">
+        <span class="input-group-addon">
+            <span class="fa glyphicon-time"></span>
+        </span>
+      </div>
+    </div>
+    <div class='col-sm-5'>
+      <div class="form-group">
+        <label>Ngày kết thúc</label>
+        <input type="text" id="end-date" data-provide='datepicker' class="form-control">
+        <span class="input-group-addon">
+            <span class="fa glyphicon-time"></span>
+        </span>
+      </div>
+    </div>
+    <div class='col-sm-12'>
+      <div class="form-group">
+        <button id="stat" class="btn btn-danger btn-sm">Xem thống kê</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,4 +7,5 @@
 //= require activestorage
 //= require turbolinks
 //= require ckeditor-jquery
+//= require bootstrap-datepicker
 //= require_tree .

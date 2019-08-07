@@ -1,1 +1,2 @@
 $('#list_table_manager').html('<%= j render 'tables/list_table', tables: @tables %>');
+$('#paginate-table').html('<%= j paginate(@tables, theme: Settings.theme_config, remote: true) %>');

@@ -31,4 +31,5 @@ Rails.application.routes.draw do
   post "/search_table_manager", to: "tables#search_table"
   post "/search_product", to: "products#search_product"
   post "/search_combo", to: "combos#search_combo"
+  post "/stat", to: "home_pages#stat"
 end

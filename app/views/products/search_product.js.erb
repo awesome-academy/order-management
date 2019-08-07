@@ -1,1 +1,2 @@
 $('#list_product').html('<%= j render 'products/list_product', products: @products %>');
+$('#paginate-product').html('<%= j paginate(@products, theme: Settings.theme_config, remote: true) %>');

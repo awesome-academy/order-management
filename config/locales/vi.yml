@@ -213,6 +213,7 @@ vi:
       edit_combo: "Sửa gói"
     index:
       new_combo: "Tạo gói mơi"
+      combos: "Danh sách gói"
       add_combo: "Thêm gói"
       find_by_name_combo: "Tìm theo tên gói"
       find_by_status_combo: "Tìm theo trạng thái gói"
