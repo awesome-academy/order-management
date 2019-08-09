@@ -1,6 +1,6 @@
 author: "Nguyễn Văn Bảy"
 maked_at: "© 2019"
-VALID_EMAIL_REGEX: !ruby/regexp '/\A[a-zA-Z0-9_\.]+\z/i'
+VALID_USERNAME_REGEX: !ruby/regexp '/\A[a-zA-Z0-9_\.]+\z/i'
 max_username: 200
 min_password: 3
 min_name: 1
@@ -47,5 +47,24 @@ statusTable: [[2,""], [0, "0"], [1, "1"]]
 font_awesome: "https://use.fontawesome.com/releases/v5.0.6/css/all.css"
 icon_google: "https://fonts.googleapis.com/icon?family=Material+Icons"
 js_github: "https://buttons.github.io/buttons.js"
-active_table: 1
-unactive_table: 0
+table_status:
+  active_table: 1
+  unactive_table: 0
+role:
+  manager: 0
+  chef: 1
+  waiter: 2
+table_type:
+  single_table: 1
+  double_table: 2
+  four_table: 4
+  eight_table: 8
+bill_status:
+  active: 1
+  unactive: 0
+combo_and_product_status:
+  allowed: 1
+  unallowed: 0
+type_detail:
+  combo: 1
+  product: 0

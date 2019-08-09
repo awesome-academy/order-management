@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2019_07_31_043910) do
     t.bigint "bill_id"
     t.bigint "product_id"
     t.bigint "combo_id"
-    t.integer "amount_product"
     t.index ["bill_id"], name: "index_bill_details_on_bill_id"
     t.index ["combo_id"], name: "index_bill_details_on_combo_id"
     t.index ["product_id"], name: "index_bill_details_on_product_id"

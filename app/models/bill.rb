@@ -15,7 +15,6 @@ class Bill < ApplicationRecord
   
   delegate :number, to: :table, prefix: true
   delegate :name, to: :user, prefix: true
-  delegate :id, to: :table, prefix: true
   delegate :sum_chair, to: :bill, prefix: true
 
   scope :table_bill_active, -> (table_id){where(table_id: table_id, status: 1)}
