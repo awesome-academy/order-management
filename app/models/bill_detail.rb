@@ -12,7 +12,6 @@ class BillDetail < ApplicationRecord
   delegate :price, to: :product, prefix: true, allow_nil: true
   delegate :name, to: :combo, prefix: true, allow_nil: true
   delegate :price, to: :combo, prefix: true, allow_nil: true
-  delegate :id, to: :bill, prefix: true
   delegate :status, to: :bill, prefix: true
 
   scope :where_bill, -> bill_id{where(bill_id: bill_id)}
