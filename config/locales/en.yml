@@ -282,6 +282,7 @@ en:
       not_exits: "Combo product not exists"
   tables:
     index:
+      not_role: "You do not have access"
       new_table: "Create table"
       all_table: "List table"
       add_table: "Add table"
