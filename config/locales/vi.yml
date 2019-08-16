@@ -283,6 +283,7 @@ vi:
       not_exits: "Gói sản phẩm không tồn tại"
   tables:
     index:
+      not_role: "Bạn không có quyền truy cập"
       new_table: "Tạo bàn"
       all_table: "Danh sách bàn"
       add_table: "Thêm bàn"
